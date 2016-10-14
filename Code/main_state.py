@@ -24,14 +24,15 @@ class BackGround:
         self.frame=0
 
     def update(self):
-        self.frame -= 0.3
-        if self.frame <= -450:
+        self.frame -= 0.2
+        if self.frame <= -600:
             self.frame = 0
 
     def draw(self):
-        self.image.clip_draw(0, 0, 800, 600, 400, 300+self.frame)
-        self.image.clip_draw(0, 0, 800, 550, 400, 800+self.frame)
-
+        #self.image.clip_draw(0, 0, 800, 600, 400, 600 + self.frame)
+        self.image.clip_draw(0, 0, 800, 600, 400, 100+self.frame)
+        self.image.clip_draw(0, 0, 800, 600, 400, 700+self.frame)
+        self.image.clip_draw(0, 0, 800, 600, 400, 1300 + self.frame)
 
 class Boy:
     def __init__(self):
