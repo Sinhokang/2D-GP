@@ -25,7 +25,7 @@ def update():
         logo_time=0
         #game_framework.quit()
         game_framework.push_state(title_state)
-    delay(0.03)
+    delay(0.02)
     logo_time+=0.01
     pass
 

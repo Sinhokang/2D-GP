@@ -13,10 +13,10 @@ class Background:
         self.frame=0
 
     def update(self):
-        self.frame -= 2.0
+        self.frame -= 3.0
         if self.frame <= -600:
             self.frame = 0
-        delay(0.05)
+
     def draw(self):
         #self.image.clip_draw(0, 0, 800, 600, 400, 600 + self.frame)
         self.image.clip_draw(0, 0, 800, 600, 400, 100+self.frame)

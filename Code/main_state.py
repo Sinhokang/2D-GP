@@ -8,6 +8,8 @@ import game_framework
 import title_state
 from BackGround import Background
 from Player import Character
+from Enemy  import Monster
+
 
 name = "MainState"
 
@@ -54,17 +56,18 @@ class Boy:
 '''
 
 def enter():
-    global character,background
+    global character,background,monster
     character=Character()
     background=Background()
-
+    monster=Monster()
     pass
 
 
 def exit():
-    global character,background
+    global character,background,monster
     del(character)
     del(background)
+    del(monster)
     pass
 
 
@@ -106,6 +109,7 @@ def handle_events():
 def update():
 
     handle_events()
+    monster.update()
     character.update()
     background.update()
     pass
@@ -115,8 +119,9 @@ def draw():
     clear_canvas()
     background.draw()
     character.draw()
+    monster.draw()
     update_canvas()
-
+    delay(0.03)
     pass
 
 
