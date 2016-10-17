@@ -9,7 +9,8 @@ import title_state
 from BackGround import Background
 from Player import Character
 from Enemy  import Monster
-
+from Player import Item_bomb
+from Player import Item_slow
 
 name = "MainState"
 
@@ -17,57 +18,25 @@ boy = None
 grass = None
 font = None
 background=None
-'''
-class BackGround:
-    def __init__(self):
-        self.image = load_image('C:/DragonFlight/Resource/background/01.png')
-        self.image2=load_image('C:/DragonFlight/Resource/background/01.png')
-        self.frame=0
-
-    def update(self):
-        self.frame -= 2.0
-        if self.frame <= -600:
-            self.frame = 0
-
-    def draw(self):
-        #self.image.clip_draw(0, 0, 800, 600, 400, 600 + self.frame)
-        self.image.clip_draw(0, 0, 800, 600, 400, 100+self.frame)
-        self.image.clip_draw(0, 0, 800, 600, 400, 700+self.frame)
-        self.image.clip_draw(0, 0, 800, 600, 400, 1300 + self.frame)
-'''
-'''
-class Boy:
-    def __init__(self):
-        self.x, self.y = 0, 90
-        self.frame = 0
-        self.image = load_image('../Resource/character/Player2.png')
-        self.dir = 1
-
-    def update(self):
-        self.frame=(self.frame+1)%8
-        self.x += self.dir
-        if self.x >= 800:
-            self.dir = -1
-        elif self.x <= 0:
-            self.dir = 1
-        delay(0.01)
-    def draw(self):
-        self.image.clip_draw(self.frame*100, 0, 90,100, self.x, self.y)
-'''
+monster=None
 
 def enter():
-    global character,background,monster
+    global character,background,monster,item_bomb,item_slow
     character=Character()
     background=Background()
     monster=Monster()
+    item_bomb=Item_bomb()
+    item_slow=Item_slow()
     pass
 
 
 def exit():
-    global character,background,monster
+    global character,background,monster,item_bomb,item_slow
     del(character)
     del(background)
     del(monster)
+    del(item_bomb)
+    del(item_slow)
     pass
 
 
@@ -107,11 +76,12 @@ def handle_events():
 
 
 def update():
-
     handle_events()
     monster.update()
     character.update()
     background.update()
+   # item_bomb.update()
+   # item_slow.update()
     pass
 
 
@@ -120,6 +90,8 @@ def draw():
     background.draw()
     character.draw()
     monster.draw()
+    item_bomb.draw()
+    item_slow.draw()
     update_canvas()
     delay(0.03)
     pass
