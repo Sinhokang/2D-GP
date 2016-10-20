@@ -4,7 +4,7 @@ from pico2d import *
 
 
 
-class Character:
+class Player_Character:
 
     Lfly=True
     Rfly=True
@@ -42,18 +42,19 @@ class Character:
 
 
 
-'''
+
 class Missile:
+    image=None
 
-    def __init__(self):
-        self.x, self.y = 100,100
-        self.image=load_image('../Resource/effect/black_boost.png')
-
+    def __init__(self,x,y):
+        self.x,self.y= x,y+75
+        self.image= load_image("../Resource/effect/Black_boost_02.png")
 
     def update(self):
-        self.y +=2
+        self.y +=25
 
     def draw(self):
-        self.image.adraw(self.x,self.y)
-'''
+        self.image.draw(self.x,self.y)
+
+
 
