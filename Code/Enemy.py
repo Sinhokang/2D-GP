@@ -15,7 +15,7 @@ class Monster:
 
 
     def update(self):
-        self.frame -= 20.0
+        self.frame -= 10.0
         if self.frame <= -600:
             self.frame = 0
         #self.state=(self.state+1)%4
