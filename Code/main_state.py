@@ -77,6 +77,8 @@ def handle_events():
 
 
 def update():
+    # frame_time=get_frame_time()
+
     handle_events()
     for missile in missiles:
         missile.update()
