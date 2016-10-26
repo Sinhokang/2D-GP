@@ -10,12 +10,14 @@ class Item_bomb:
     #monster=Monster()
     def __init__(self):
         self.x,self.y=50,100
+        self.nx,self.ny=50,250
+        self.frame=2
         self.image=load_image('../Resource/object/item_bomb.png')
-
+        self.Num=load_image('../Resource/ui/Number.png')
 
     def draw(self):
         self.image.draw(self.x,self.y)
-
+        self.Num.clip_draw(self.frame*100,0,100,100,self.nx,self.ny)
 
     def handle_event(self, event):
         if event.type == SDL_KEYDOWN and event.key == SDLK_z:
