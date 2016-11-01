@@ -5,23 +5,36 @@ from pico2d import *
 
 
 class Player_Character:
-
+    '''
+    PIXEL_PER_METER = (1.0 / 0.03)
+    RUN_SPEED_KMPH = 20.0
+    RUN_SPEED_MPM = (RUN_SPEED_KMPH * 1000.0 / 60.0)
+    RUN_SPEED_MPS = (RUN_SPEED_MPM / 60.0)
+    RUN_SPEED_PPS = (RUN_SPEED_MPS * PIXEL_PER_METER)
+    '''
     Lfly=True
     Rfly=True
+
+
     def __init__(self):
         self.x, self.y = 400, 90
         self.frame = 0
         self.image = load_image('../Resource/character/Player2.png')
         self.move=0
+        self.dir =1
 
     def update(self):
         self.frame = (self.frame + 1) % 8
+        #distance=Player_Character.RUN_SPEED_PPS*frame_time
+        #self.x+=(self.dir*distance)
+
         if self.Lfly == False:
             self.x=max(150,self.x-15)
         elif self.Rfly==False:
             self.x=min(650,self.x+15)
 
-        delay(0.01)
+
+
 
 
     def draw(self):

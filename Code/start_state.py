@@ -10,7 +10,7 @@ logo_time = 0.0
 
 def enter():
     global image
-    open_canvas()
+    open_canvas(sync=True)
     image=load_image('../Resource/background/kpu_credit.png')
     pass
 

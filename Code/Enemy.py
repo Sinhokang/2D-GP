@@ -32,5 +32,7 @@ class Monster:
         #self.state=(self.state+1)%4
         #elay(0.01)
 
+
+
     def draw(self):
         self.image.clip_draw(0,0, 500,70, self.x, self.y+self.frame)

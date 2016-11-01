@@ -17,6 +17,7 @@ class Item_bomb:
 
     def draw(self):
         self.image.draw(self.x,self.y)
+        i
         self.Num.clip_draw(self.frame*100,0,40,20,self.nx,self.ny)
 
     def handle_event(self, event):
