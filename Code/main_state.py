@@ -28,7 +28,6 @@ current_time = 0.0
 
 def enter():
     global player,background,monster,item_bomb,item_slow,missile
-
     player=Player_Character()
     background=Background()
     monster=Monster()
@@ -80,7 +79,7 @@ def handle_events():
 
 
     pass
-current_time = 0.0
+
 
 
 def update():
@@ -93,17 +92,17 @@ def update():
     monster.update()
     player.update()
     background.update()
+    '''
+    current_time = get_time()
 
-   # current_time = get_time()
-    #frame_time = get_time() - current_time
-    #if (frame_time != 0):
-     #   frame_rate = 1.0 / frame_time
+    frame_time = get_time() - current_time
+    if (frame_time != 0):
+        frame_rate = 1.0 / frame_time
+        print("frame rate : %f fps,frame time : %f sec, " % (frame_rate, frame_time))
+    current_time += frame_time
+    '''
 
 
-    #  current_time += frame_time
-
-
-    pass
 
 
 def draw():
@@ -116,7 +115,7 @@ def draw():
     for missile in missiles:
         missile.draw()
     update_canvas()
-    #delay(0.03)
+    delay(0.03)
     pass
 
 

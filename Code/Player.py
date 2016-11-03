@@ -15,7 +15,6 @@ class Player_Character:
     Lfly=True
     Rfly=True
 
-
     def __init__(self):
         self.x, self.y = 400, 90
         self.frame = 0
