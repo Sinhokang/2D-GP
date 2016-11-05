@@ -20,7 +20,7 @@ class Item_bomb:
         self.Bomb=load_image('../Resource/effect/deco_02.png')
     def draw(self):
         self.image.draw(self.x,self.y)
-        self.Num.clip_draw(self.frame*35,0,40,20,self.nx,self.ny)
+        self.Num.clip_draw((self.frame-1)*35,0,40,20,self.nx,self.ny)
         if(self.swit==False and self.frame>0):
             self.update()
             self.swit=True
@@ -49,8 +49,8 @@ class Item_slow:
 
     def draw(self):
         self.image.draw(self.x, self.y)
-        self.Num.clip_draw(self.frame * 35, 0, 40, 20, self.nx, self.ny)
-        if (self.swit == False and self.frame > 0):
+        self.Num.clip_draw((self.frame-1) * 35, 0, 40, 20, self.nx, self.ny)
+        if (self.swit == False and self.frame> 0):
             self.update()
             self.swit = True
 

@@ -12,7 +12,7 @@ from Player import Missile
 from Enemy  import Monster
 from Item import Item_bomb
 from Item import Item_slow
-
+#import Ranking_state
 name = "MainState"
 
 boy = None
@@ -66,6 +66,8 @@ def handle_events():
             game_framework.quit()
         elif event.type == SDL_KEYDOWN and event.key ==SDLK_ESCAPE:
             game_framework.change_state(title_state)
+        #elif event.type == SDL_KEYDOWN and event.key == SDLK_q:
+           # game_framework.change_state(Ranking_state)
         elif event.type == SDL_KEYDOWN and event.key == SDLK_SPACE:
             newmisslies = Missile(player.x,player.y)
             missiles.append(newmisslies)
