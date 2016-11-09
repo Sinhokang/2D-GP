@@ -117,6 +117,7 @@ def draw(frame_time):
         missile.draw()
     update_canvas()
 
+
     delay(0.02)
     pass
 

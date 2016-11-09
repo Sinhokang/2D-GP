@@ -50,7 +50,7 @@ def draw_ranking():
     score_data = json.load(f)
     f.close()
     bubble_sort(score_data)
-    score_data = score_data[:3]
+    score_data = score_data[:10]
     font.draw(280,500,'[RANKING]', (255,255,0))
     i = 0
     for score in score_data:
