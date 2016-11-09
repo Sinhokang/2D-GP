@@ -39,6 +39,7 @@ def enter():
 
 
 def exit():
+
     global player,background,monster,item_bomb,item_slow,missile,font
     f = open('data_file.txt', 'r')
     score_data = json.load(f)

@@ -61,7 +61,7 @@ class Player_Character:
 
     def draw(self):
         self.image.clip_draw(self.frame * 100, 0, 90, 100, self.x, self.y)
-        font.draw(750, 500, '[RANKING]', (255, 255, 0))
+        #font.draw(750, 500, '[RANKING]', (255, 255, 0))
 
     '''
     def handle_event(self,event):
