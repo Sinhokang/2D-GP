@@ -12,7 +12,7 @@ from Player import Missile
 from Enemy  import Monster
 from Item import Item_bomb
 from Item import Item_slow
-#import Ranking_state
+import Ranking_state
 name = "MainState"
 
 boy = None
@@ -20,26 +20,34 @@ grass = None
 font = None
 background=None
 monster=None
-global current_time
-global frame_time
 missiles=[]
-current_time = 0.0
+
 
 
 def enter():
-    global player,background,monster,item_bomb,item_slow,missile
+    global player,background,monster,item_bomb,item_slow,missile,font
+    font=load_font('ENCR10B.TTF')
     player=Player_Character()
     background=Background()
     monster=Monster()
     item_bomb=Item_bomb()
     item_slow=Item_slow()
+    game_framework.reset_time()
 
 
     pass
 
 
 def exit():
-    global player,background,monster,item_bomb,item_slow,missile
+    global player,background,monster,item_bomb,item_slow,missile,font
+    f = open('data_file.txt', 'r')
+    score_data = json.load(f)
+    f.close()
+    score_data.append({"Time": player.life_time})
+    f = open('data_file.txt', 'w')
+    json.dump(score_data, f)
+    f.close()
+    del(font)
     del(player)
     del(background)
     del(monster)
@@ -58,7 +66,7 @@ def resume():
     pass
 
 
-def handle_events():
+def handle_events(frame_time):
     global missiles
     events=get_events()
     for event in events:
@@ -66,8 +74,8 @@ def handle_events():
             game_framework.quit()
         elif event.type == SDL_KEYDOWN and event.key ==SDLK_ESCAPE:
             game_framework.change_state(title_state)
-        #elif event.type == SDL_KEYDOWN and event.key == SDLK_q:
-           # game_framework.change_state(Ranking_state)
+        elif event.type == SDL_KEYDOWN and event.key == SDLK_q:
+            game_framework.change_state(Ranking_state)
         elif event.type == SDL_KEYDOWN and event.key == SDLK_SPACE:
             newmisslies = Missile(player.x,player.y)
             missiles.append(newmisslies)
@@ -84,30 +92,20 @@ def handle_events():
 
 
 
-def update():
+def update(frame_time):
 
 
 
-    handle_events()
+    handle_events(frame_time)
     for missile in missiles:
         missile.update()
-    monster.update()
-    player.update()
+    monster.update(frame_time)
+    player.update(frame_time)
     background.update()
-    '''
-    current_time = get_time()
-
-    frame_time = get_time() - current_time
-    if (frame_time != 0):
-        frame_rate = 1.0 / frame_time
-        print("frame rate : %f fps,frame time : %f sec, " % (frame_rate, frame_time))
-    current_time += frame_time
-    '''
 
 
 
-
-def draw():
+def draw(frame_time):
     clear_canvas()
     background.draw()
     player.draw()
@@ -117,7 +115,8 @@ def draw():
     for missile in missiles:
         missile.draw()
     update_canvas()
-    delay(0.03)
+
+    delay(0.02)
     pass
 
 

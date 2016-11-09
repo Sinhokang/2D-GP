@@ -1,12 +1,13 @@
 import random
-
+import json
+import os
 from pico2d import *
 
 
 
 class Player_Character:
 
-    PIXEL_PER_METER = (1.0 / 0.03)
+    PIXEL_PER_METER = (20.0 / 0.3)
     RUN_SPEED_KMPH = 20.0
     RUN_SPEED_MPM = (RUN_SPEED_KMPH * 1000.0 / 60.0)
     RUN_SPEED_MPS = (RUN_SPEED_MPM / 60.0)
@@ -18,6 +19,7 @@ class Player_Character:
 
     Lfly=True
     Rfly=True
+    global font
 
     def __init__(self):
         self.x, self.y = 400, 90
@@ -27,26 +29,61 @@ class Player_Character:
         self.image = load_image('../Resource/character/Player2.png')
         self.move=0
         self.dir =1
+        font = load_font('ENCR10B.TTF', 40)
+       # LEFT_RUN, RIGHT_RUN, LEFT_STAND, RIGHT_STAND = 0, 1, 2, 3
 
-    def update(self):
-        #global frame_time
-        #self.life_time += frame_time
+    def update(self,frame_time):
+        self.life_time += frame_time
         self.frame = (self.frame + 1) % 8
-       # distance=Player_Character.RUN_SPEED_PPS*frame_time
-       # self.x+=(self.dir*distance)
+        distance=Player_Character.RUN_SPEED_PPS*frame_time
+        #self.x+=(self.dir*distance)
 
         if self.Lfly == False:
             self.x=max(150,self.x-15)
         elif self.Rfly==False:
             self.x=min(650,self.x+15)
 
+    '''
+    def update(self,frame_time):
+        def clamp(minimum, x, maximum):
+            return max(minimum, min(x, maximum))
 
+        self.life_time += frame_time
+        distance = Player_Character.RUN_SPEED_PPS * frame_time
+        self.total_frames += Player_Character.FRAMES_PER_ACTION * Player_Character.ACTION_PER_TIME * frame_time
+        self.frame = int(self.total_frames) % 8
+        self.x += (self.dir * distance)
+
+        self.x = clamp(150, self.x, 650)
+    '''
 
 
 
     def draw(self):
         self.image.clip_draw(self.frame * 100, 0, 90, 100, self.x, self.y)
+        font.draw(750, 500, '[RANKING]', (255, 255, 0))
 
+    '''
+    def handle_event(self,event):
+        def handle_event(self, event):
+            if (event.type, event.key) == (SDL_KEYDOWN, SDLK_LEFT):
+                if self.state in (self.RIGHT_STAND, self.LEFT_STAND, self.RIGHT_RUN):
+                    self.state = self.LEFT_RUN
+                    self.dir = -1
+            elif (event.type, event.key) == (SDL_KEYDOWN, SDLK_RIGHT):
+                if self.state in (self.RIGHT_STAND, self.LEFT_STAND, self.LEFT_RUN):
+                    self.state = self.RIGHT_RUN
+                    self.dir = 1
+            elif (event.type, event.key) == (SDL_KEYUP, SDLK_LEFT):
+                if self.state in (self.LEFT_RUN,):
+                    self.state = self.LEFT_STAND
+                    self.dir = 0
+            elif (event.type, event.key) == (SDL_KEYUP, SDLK_RIGHT):
+                if self.state in (self.RIGHT_RUN,):
+                    self.state = self.RIGHT_STAND
+                    self.dir = 0
+
+        '''
     def handle_event(self,event):
         if event.type == SDL_KEYDOWN:
             if event.key == SDLK_RIGHT:

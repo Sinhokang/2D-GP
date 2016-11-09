@@ -21,7 +21,7 @@ def exit():
     del(back)
 
 
-def handle_events():
+def handle_events(frame_time):
     events =get_events()
     for event in events:
         if event.type==SDL_QUIT:
@@ -33,7 +33,7 @@ def handle_events():
                 game_framework.change_state(main_state)
     pass
 
-def draw():
+def draw(frame_time):
     clear_canvas()
     back.draw(400, 300)
     Load.draw(400,100)
@@ -45,7 +45,7 @@ def draw():
 
 
 
-def update():
+def update(frame_time):
     pass
 
 
