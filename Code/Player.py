@@ -42,7 +42,7 @@ class Player_Character:
             self.x=max(150,self.x-15)
         elif self.Rfly==False:
             self.x=min(650,self.x+15)
-
+      #  font.draw(500, 450, 'Time:%4.1f' % (self.life_time), (0, 0, 0))
     '''
     def update(self,frame_time):
         def clamp(minimum, x, maximum):
@@ -61,7 +61,7 @@ class Player_Character:
 
     def draw(self):
         self.image.clip_draw(self.frame * 100, 0, 90, 100, self.x, self.y)
-        #font.draw(750, 500, '[RANKING]', (255, 255, 0))
+
 
     '''
     def handle_event(self,event):
@@ -98,9 +98,16 @@ class Player_Character:
                 self.Lfly = True
 
 
+    def get_bb(self):
+        return self.x - 30, self.y - 50, self.x + 30, self.y + 50
+
+
+    def draw_bb(self):
+        draw_rectangle(*self.get_bb())
 
 
 class Missile:
+
     image=None
 
     def __init__(self,x,y):

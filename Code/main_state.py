@@ -67,7 +67,20 @@ def resume():
     pass
 
 
+def collide(a,b):
+
+    left_a,bottom_a,right_a,top_a = a.get_bb()
+    left_b,bottom_b,right_b,top_b = b.get_bb()
+
+    if left_a>right_b : return False
+    if right_a<left_b : return False
+    if top_a<bottom_b : return False
+    if bottom_a>top_b : return False
+
+    return True
+
 def handle_events(frame_time):
+
     global missiles
     events=get_events()
     for event in events:
@@ -95,15 +108,32 @@ def handle_events(frame_time):
 
 def update(frame_time):
 
-
-
+    global monsters
     handle_events(frame_time)
+
+    monster.update(frame_time)
+
     for missile in missiles:
         missile.update()
-    monster.update(frame_time)
+
+    for missile in missiles:
+        if collide(monster, missile):
+            missile.remove(missile)
+            monsters.remove(monster)
+
+    '''
+    for monster in monsters:
+        if collide(monster, player):
+             close_game = 1
+            game_framework.push_state(Ranking_state)
+    '''
+    #monster.update(frame_time)
     player.update(frame_time)
     background.update()
-
+    font.draw(500,450,'Time:%4.1f'%(player.life_time),(0,0,0))
+    print(player.life_time)
+    #font.draw(100, 450 - 40 * i, 'TIME:%4.1f'
+           #   % (score['Time']), (100, 150, 150))
 
 
 def draw(frame_time):
@@ -116,6 +146,7 @@ def draw(frame_time):
     for missile in missiles:
         missile.draw()
     update_canvas()
+
 
 
     delay(0.02)

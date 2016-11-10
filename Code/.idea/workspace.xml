@@ -33,8 +33,8 @@
       <file leaf-file-name="Player.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Player.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="63" column="9" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
+            <state relative-caret-position="-64">
+              <caret line="104" column="4" selection-start-line="104" selection-start-column="4" selection-end-line="104" selection-end-column="4" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -45,8 +45,8 @@
       <file leaf-file-name="Ranking_state.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Ranking_state.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="55" column="4" selection-start-line="55" selection-start-column="4" selection-end-line="58" selection-end-column="12" />
+            <state relative-caret-position="440">
+              <caret line="53" column="10" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -58,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/data_file.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="92" selection-start-line="0" selection-start-column="92" selection-end-line="0" selection-end-column="92" />
+              <caret line="0" column="383" selection-start-line="0" selection-start-column="383" selection-end-line="0" selection-end-column="383" />
               <folding />
             </state>
           </provider>
@@ -67,7 +67,7 @@
       <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/json/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
+            <state relative-caret-position="9576">
               <caret line="267" column="0" selection-start-line="267" selection-start-column="0" selection-end-line="267" selection-end-column="0" />
               <folding />
             </state>
@@ -78,20 +78,8 @@
         <entry file="file://$PROJECT_DIR$/game_framework.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="290">
-              <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+              <caret line="93" column="8" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="8" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="start_state.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/start_state.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -99,8 +87,8 @@
       <file leaf-file-name="Enemy.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Enemy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+            <state relative-caret-position="684">
+              <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -111,8 +99,8 @@
       <file leaf-file-name="main_state.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main_state.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1376">
-              <caret line="50" column="13" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
+            <state relative-caret-position="2234">
+              <caret line="119" column="35" selection-start-line="119" selection-start-column="35" selection-end-line="119" selection-end-column="35" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -120,11 +108,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="data_file" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data_file">
+      <file leaf-file-name="BackGround.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BackGround.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="44" selection-start-line="0" selection-start-column="44" selection-end-line="0" selection-end-column="44" />
+            <state relative-caret-position="216">
+              <caret line="29" column="28" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Item.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Item.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="800">
+              <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -142,21 +140,21 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/BackGround.py" />
         <option value="C:/2016-2DGP/Labs/Lab07 - Character Controller/json_players.py" />
         <option value="$PROJECT_DIR$/data_file" />
         <option value="$PROJECT_DIR$/Testmove.py" />
         <option value="$PROJECT_DIR$/TestOper.py" />
         <option value="$PROJECT_DIR$/Empty.py" />
         <option value="$PROJECT_DIR$/Item.py" />
-        <option value="$PROJECT_DIR$/game_framework.py" />
         <option value="$PROJECT_DIR$/start_state.py" />
         <option value="$PROJECT_DIR$/title_state.py" />
-        <option value="$PROJECT_DIR$/Enemy.py" />
         <option value="$PROJECT_DIR$/mygame.py" />
-        <option value="$PROJECT_DIR$/Player.py" />
-        <option value="$PROJECT_DIR$/Ranking_state.py" />
         <option value="$PROJECT_DIR$/data_file.txt" />
+        <option value="$PROJECT_DIR$/Ranking_state.py" />
+        <option value="$PROJECT_DIR$/BackGround.py" />
+        <option value="$PROJECT_DIR$/Player.py" />
+        <option value="$PROJECT_DIR$/game_framework.py" />
+        <option value="$PROJECT_DIR$/Enemy.py" />
         <option value="$PROJECT_DIR$/main_state.py" />
       </list>
     </option>
@@ -192,6 +190,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -212,12 +211,11 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="C:/2016-2DGP/Labs/Lab09 - Collision Handling" />
   </component>
   <component name="RunManager" selected="Python.mygame">
     <configuration default="false" name="mygame" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -452,14 +450,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-14" y="-14" width="2588" height="1538" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1234375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3269934" sideWeight="0.365625" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32626188" sideWeight="0.634375" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32626188" sideWeight="0.634375" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -528,7 +526,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -544,7 +541,7 @@
         <state relative-caret-position="900">
           <caret line="27" column="14" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -598,7 +595,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -614,7 +610,7 @@
         <state relative-caret-position="900">
           <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -668,7 +664,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -684,7 +679,7 @@
         <state relative-caret-position="900">
           <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -720,7 +715,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -752,7 +747,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12204">
           <caret line="341" column="0" selection-start-line="341" selection-start-column="0" selection-end-line="341" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -768,7 +762,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -776,7 +769,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -785,19 +777,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BackGround.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-676">
-          <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/title_state.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1592">
           <caret line="47" column="21" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -805,6 +788,31 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_file">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="44" selection-start-line="0" selection-start-column="44" selection-end-line="0" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/start_state.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#18#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/json/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9576">
+          <caret line="267" column="0" selection-start-line="267" selection-start-column="0" selection-end-line="267" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -817,46 +825,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Enemy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_file">
+    <entry file="file://$PROJECT_DIR$/data_file.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="44" selection-start-line="0" selection-start-column="44" selection-end-line="0" selection-end-column="44" />
+          <caret line="0" column="383" selection-start-line="0" selection-start-column="383" selection-end-line="0" selection-end-column="383" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/game_framework.py">
+    <entry file="file://$PROJECT_DIR$/Ranking_state.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/start_state.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+        <state relative-caret-position="440">
+          <caret line="53" column="10" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/json/__init__.py">
+    <entry file="file://$PROJECT_DIR$/BackGround.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="267" column="0" selection-start-line="267" selection-start-column="0" selection-end-line="267" selection-end-column="0" />
+        <state relative-caret-position="216">
+          <caret line="29" column="28" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -871,36 +861,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Player.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="63" column="9" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
+        <state relative-caret-position="-64">
+          <caret line="104" column="4" selection-start-line="104" selection-start-column="4" selection-end-line="104" selection-end-column="4" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_file.txt">
+    <entry file="file://$PROJECT_DIR$/game_framework.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="92" selection-start-line="0" selection-start-column="92" selection-end-line="0" selection-end-column="92" />
+        <state relative-caret-position="290">
+          <caret line="93" column="8" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Ranking_state.py">
+    <entry file="file://$PROJECT_DIR$/Enemy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="55" column="4" selection-start-line="55" selection-start-column="4" selection-end-line="58" selection-end-column="12" />
+        <state relative-caret-position="684">
+          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main_state.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1376">
-          <caret line="50" column="13" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
+        <state relative-caret-position="2234">
+          <caret line="119" column="35" selection-start-line="119" selection-start-column="35" selection-end-line="119" selection-end-column="35" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>

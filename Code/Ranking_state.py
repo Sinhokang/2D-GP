@@ -54,8 +54,8 @@ def draw_ranking():
     font.draw(280,500,'[RANKING]', (255,255,0))
     i = 0
     for score in score_data:
-        font.draw(100,450-40*i,'TIME:%4.1f'
-                  % (score['Time']), (100,150,150))
+        font.draw(100,450-40*i,'Player%3d TIME:%4.1f'
+                  % (i,score['Time'],), (100,150,150))
         i+=1
 
 def bubble_sort(data):

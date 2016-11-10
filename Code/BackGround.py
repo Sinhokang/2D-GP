@@ -22,7 +22,7 @@ class Background:
 
     def update(self):
         if self.state==self.One:
-            self.frame -= 5.0
+            self.frame -= 2.0
             if self.frame <= -600:
                 self.frame = 0
                 self.state=self.Two
