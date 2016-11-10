@@ -19,17 +19,17 @@ boy = None
 grass = None
 font = None
 background=None
-monster=None
-missiles=[]
 
+missiles=[]
+monsters=[]
 
 
 def enter():
-    global player,background,monster,item_bomb,item_slow,missile,font
+    global player,background,monsters,item_bomb,item_slow,missile,font
     font=load_font('ENCR10B.TTF')
     player=Player_Character()
     background=Background()
-    monster=Monster()
+    monsters = create_monster_team()
     item_bomb=Item_bomb()
     item_slow=Item_slow()
     game_framework.reset_time()
@@ -51,7 +51,7 @@ def exit():
     del(font)
     del(player)
     del(background)
-    del(monster)
+   # del(monster)
     del(item_bomb)
     del(item_slow)
     #del(missile)
@@ -106,27 +106,65 @@ def handle_events(frame_time):
 
 
 
+def create_monster_team():
+
+
+    team = []
+    monster1=Monster()
+    monster1.set_pos(35*3, 550)
+    team.append(monster1)
+
+    monster2=Monster()
+    monster2.set_pos(35*5, 550)
+    team.append(monster2)
+
+    monster3=Monster()
+    monster3.set_pos(35*7, 550)
+    team.append(monster3)
+
+    monster4=Monster()
+    monster4.set_pos(35*9, 550)
+    team.append(monster4)
+
+    monster5=Monster()
+    monster5.set_pos(35*13, 550)
+    team.append(monster5)
+
+    #monster6 = Monster()
+    #monster6.set_pos(35 * 30, 550)
+    #team.append(monster6)
+
+
+   # if team()==0:
+      #  create_monster_team()
+    return team
+
 def update(frame_time):
 
     global monsters
     handle_events(frame_time)
-
-    monster.update(frame_time)
-
-    for missile in missiles:
-        missile.update()
+    for monster in monsters:
+        monster.update(frame_time)
 
     for missile in missiles:
-        if collide(monster, missile):
-            missile.remove(missile)
-            monsters.remove(monster)
+        missile.update(frame_time)
 
-    '''
+    for missile in missiles:
+        for monster in monsters:
+            if collide(monster, missile):
+                missiles.remove(missile)
+                monsters.remove(monster)
+
+
+
     for monster in monsters:
         if collide(monster, player):
-             close_game = 1
             game_framework.push_state(Ranking_state)
-    '''
+
+    for monster in monsters:
+        if monster.y <= -20:
+            monsters = create_monster_team()
+
     #monster.update(frame_time)
     player.update(frame_time)
     background.update()
@@ -140,11 +178,20 @@ def draw(frame_time):
     clear_canvas()
     background.draw()
     player.draw()
-    monster.draw()
-    item_bomb.draw()
-    item_slow.draw()
+    player.draw_bb()
     for missile in missiles:
         missile.draw()
+    for missile in missiles:
+        missile.draw_bb()
+
+    for monster in monsters:
+        monster.draw()
+    for monster in monsters:
+        monster.draw_bb()
+
+    item_bomb.draw()
+    item_slow.draw()
+
     update_canvas()
 
 

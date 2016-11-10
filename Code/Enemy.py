@@ -1,8 +1,7 @@
 import random
 
 from pico2d import *
-
-
+from BackGround import Background
 
 
 
@@ -17,20 +16,39 @@ class Monster:
 
 
     def __init__(self):
-        self.x, self.y = 400, 550
-        self.frame = 0
+        self.x, self.y = random.randint(350, 650), 550
+        self.dir = 1
+        self.fall_speed = random.randint(90, 170)
         self.state=0
-        self.image = load_image('../Resource/character/Enemy2.png')
-        self.dir =1
+
+        self.image = load_image('../Resource/character/Enemy4.png')
+
 
     def update(self,frame_time):
-        distance =Monster.RUN_SPEED_PPS*frame_time
-        self.y-=(self.dir*distance)
+        self.y -= frame_time * self.fall_speed
+        '''
+        if Background.state==1:
+            dir=1
+        elif Background.state==2:
+            dir=1.5
+        elif Background.state==3:
+            dir=2
+        elif Background.state==4:
+            dir=2.5
+        '''
+        print(self.y)
         if self.y <= -550:
             self.y = 550
+        print("가능?")
+
+    def set_pos(self, x, y):
+        self.x = x
+        self.y = y
 
     def draw(self):
-        self.image.clip_draw(0,0, 500,70, self.x, self.y)
+        self.image.clip_draw(0,0, 100,70, self.x, self.y)
+
+
     def get_bb(self):
         return self.x-22,self.y-25,self.x+22,self.y+25
 

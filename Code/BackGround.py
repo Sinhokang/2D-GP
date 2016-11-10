@@ -22,18 +22,18 @@ class Background:
 
     def update(self):
         if self.state==self.One:
-            self.frame -= 2.0
+            self.frame -= 1.0
             if self.frame <= -600:
                 self.frame = 0
                 self.state=self.Two
         if self.state==self.Two:
-            self.frame2 -= 5.0
+            self.frame2 -= 2.0
             if self.frame2 <= -600:
                 self.frame2=0
                 self.state=self.Three
                 self.y=0
         if self.state==self.Three:
-            self.frame3 -= 5.0
+            self.frame3 -= 3.0
             if self.frame3 <= -600:
                 self.frame3=0
                 self.state=self.Four

@@ -7,7 +7,7 @@ from pico2d import *
 
 class Player_Character:
 
-    PIXEL_PER_METER = (20.0 / 0.3)
+    PIXEL_PER_METER = (20.0 / 1)
     RUN_SPEED_KMPH = 20.0
     RUN_SPEED_MPM = (RUN_SPEED_KMPH * 1000.0 / 60.0)
     RUN_SPEED_MPS = (RUN_SPEED_MPM / 60.0)
@@ -112,13 +112,21 @@ class Missile:
 
     def __init__(self,x,y):
         self.x,self.y= x,y+75
+        self.speed=1000
         self.image= load_image("../Resource/effect/Black_boost_02.png")
 
-    def update(self):
-        self.y +=25
+    def update(self,frame_time):
+        self.y +=frame_time*self.speed
 
     def draw(self):
         self.image.draw(self.x,self.y)
+
+    def get_bb(self):
+        return self.x - 30, self.y - 50, self.x + 30, self.y + 50
+
+
+    def draw_bb(self):
+        draw_rectangle(*self.get_bb())
 
 
 
