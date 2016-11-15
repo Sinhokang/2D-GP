@@ -122,7 +122,8 @@ class Missile:
         self.image.draw(self.x,self.y)
 
     def get_bb(self):
-        return self.x - 30, self.y - 50, self.x + 30, self.y + 50
+        return self.x - 15, self.y - 25, self.x + 15, self.y + 50
+    
 
 
     def draw_bb(self):
