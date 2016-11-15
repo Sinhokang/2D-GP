@@ -26,10 +26,10 @@ monsters=[]
 
 def enter():
     global player,background,monsters,item_bomb,item_slow,missile,font
-    font=load_font('ENCR10B.TTF')
+    font = load_font('ENCR10B.TTF', 40)
     player=Player_Character()
     background=Background()
-    monsters = create_monster_team()
+    monsters = create_monster()
     item_bomb=Item_bomb()
     item_slow=Item_slow()
     game_framework.reset_time()
@@ -106,38 +106,109 @@ def handle_events(frame_time):
 
 
 
-def create_monster_team():
+def create_monster():
+    global state
+    state=1
+    state=(state+1)%4
+    create = []
+    if(state ==1):
+        monster1=Monster()
+        monster1.set_pos(35*3, 550)
+        create.append(monster1)
 
+        monster2=Monster()
+        monster2.set_pos(35*5, 550)
+        create.append(monster2)
 
-    team = []
-    monster1=Monster()
-    monster1.set_pos(35*3, 550)
-    team.append(monster1)
+        monster8 = Monster()
+        monster8.set_pos(35 * 10, 550)
+        create.append(monster8)
+        monster2 = Monster()
+        monster2.set_pos(35 * 5, 550)
+        create.append(monster2)
 
-    monster2=Monster()
-    monster2.set_pos(35*5, 550)
-    team.append(monster2)
+        monster3=Monster()
+        monster3.set_pos(35*7, 550)
+        create.append(monster3)
 
-    monster3=Monster()
-    monster3.set_pos(35*7, 550)
-    team.append(monster3)
+        monster4=Monster()
+        monster4.set_pos(35*9, 550)
+        create.append(monster4)
 
-    monster4=Monster()
-    monster4.set_pos(35*9, 550)
-    team.append(monster4)
+        monster9 = Monster()
+        monster9.set_pos(35 * 30, 550)
+        create.append(monster9)
+    elif state ==2:
+        monster5=Monster()
+        monster5.set_pos(35*13, 550)
+        create.append(monster5)
+        monster1 = Monster()
+        monster1.set_pos(35 * 3, 550)
+        create.append(monster1)
 
-    monster5=Monster()
-    monster5.set_pos(35*13, 550)
-    team.append(monster5)
+        monster2 = Monster()
+        monster2.set_pos(35 * 5, 550)
+        create.append(monster2)
+        monster6 = Monster()
+        monster6.set_pos(35 * 15, 550)
+        create.append(monster6)
+        monster8 = Monster()
+        monster8.set_pos(35 * 16, 550)
+        create.append(monster8 )
+        monster7 = Monster()
+        monster7.set_pos(35 * 17, 550)
+        create.append(monster7)
+        monster9 = Monster()
+        monster9.set_pos(35 * 30, 550)
+        create.append(monster9)
+    elif state==3:
+        monster1 = Monster()
+        monster1.set_pos(35 * 3, 550)
+        create.append(monster1)
+        monster5 = Monster()
+        monster5.set_pos(35 * 13, 550)
+        create.append(monster5)
+        monster6 = Monster()
+        monster6.set_pos(35 * 15, 550)
+        create.append(monster6)
+        monster8 = Monster()
+        monster8.set_pos(35 * 16, 550)
+        create.append(monster8)
+        monster2 = Monster()
+        monster2.set_pos(35 * 5, 550)
+        create.append(monster2)
 
-    #monster6 = Monster()
-    #monster6.set_pos(35 * 30, 550)
-    #team.append(monster6)
+    elif state ==4:
+        monster9 = Monster()
+        monster9.set_pos(35 * 30  , 550)
+        create.append(monster9)
+
+        monster5 = Monster()
+        monster5.set_pos(35 * 13, 550)
+        create.append(monster5)
+
+        monster6 = Monster()
+        monster6.set_pos(35 * 15, 550)
+        create.append(monster6)
+
+        monster8 = Monster()
+        monster8.set_pos(35 * 10, 550)
+        create.append(monster8)
+        monster2 = Monster()
+        monster2.set_pos(35 * 5, 550)
+        create.append(monster2)
+        monster10 = Monster()
+        monster10.set_pos(35 *18 , 550)
+        create.append(monster8)
+        monster11 = Monster()
+        monster11.set_pos(35 * 3, 550)
+        create.append(monster11)
+
 
 
    # if team()==0:
       #  create_monster_team()
-    return team
+    return create
 
 def update(frame_time):
 
@@ -163,7 +234,7 @@ def update(frame_time):
 
     for monster in monsters:
         if monster.y <= -20:
-            monsters = create_monster_team()
+            monsters = create_monster()
 
     #monster.update(frame_time)
     player.update(frame_time)
