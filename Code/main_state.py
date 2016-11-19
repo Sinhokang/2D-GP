@@ -112,16 +112,16 @@ def handle_events(frame_time):
 
 def create_monster():
     global state
-    state=1
+    state=0
     state=(state+1)%4
     create = []
     if(state ==1):
-        monster1 = Monster()
-        monster1.set_pos(35 * 3, 550)
-        create.append(monster1)
+        #monster1 = Monster()
+        #monster1.set_pos(35 * 5, 550)
+        #create.append(monster1)
 
         monster3 = Monster()
-        monster3.set_pos(35 * 7, 550)
+        monster3.set_pos(35 * 15, 550)
         create.append(monster3)
 
         monster5 = Monster()
@@ -132,9 +132,9 @@ def create_monster():
         monster7.set_pos(35 * 17, 550)
         create.append(monster7)
 
-        monster10 = Monster()
-        monster10.set_pos(35 * 10, 550)
-        create.append(monster10)
+        #monster10 = Monster()
+        #monster10.set_pos(35 * 7, 550)
+        #create.append(monster10)
 
         monster9 = Monster()
         monster9.set_pos(35 * 30, 550)
@@ -239,14 +239,14 @@ def update(frame_time):
                 missiles.remove(missile)
                 monsters.remove(monster)
 
-    for missile in missiles:
-        for boss in bosss:
-            if collide(boss, missile):
-                missiles.remove(missile)
-                dis-=1
-                print(dis)
-                if(dis==0):
-                    bosss.remove(boss)
+    #for missile in missiles:
+      #  for boss in bosss:
+     #       if collide(boss, missile):
+      #          missiles.remove(missile)
+       #         dis-=1
+        #        print(dis)
+         #       if(dis==0):
+          #          bosss.remove(boss)
 
     for monster in monsters:
         if collide(monster, player):
@@ -270,7 +270,7 @@ def draw(frame_time):
     background.draw()
     player.draw()
     player.draw_bb()
-    background.get_bb()
+    #background.get_bb()
 
     for missile in missiles:
         missile.draw()

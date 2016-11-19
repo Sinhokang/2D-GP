@@ -29,7 +29,7 @@ class Background:
 
     def update(self):
         if self.state==self.One:
-            self.frame -= 20.0#1
+            self.frame -= 1.0#1
             if self.frame <= -600:
                 self.frame = 0
                 self.state=self.Two
@@ -67,8 +67,8 @@ class Background:
             self.two.clip_draw(0, 0, 800, 600, 400, 100 + self.frame2)
             self.two.clip_draw(0, 0, 800, 600, 400, 700 + self.frame2)
             self.two.clip_draw(0, 0, 800, 600, 400, 1300 + self.frame2)
-            if (self.bossUP == False):
-                self.boss.draw(self.x, self.y)
+            #if (self.bossUP == False):
+              #  self.boss.draw(self.x, self.y)
         if self.state == self.Three:
             self.three.clip_draw(0, 0, 800, 600, 400, 100 + self.frame3)
             self.three.clip_draw(0, 0, 800, 600, 400, 700 + self.frame3)
