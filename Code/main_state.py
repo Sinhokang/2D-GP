@@ -116,9 +116,9 @@ def create_monster():
     state=(state+1)%4
     create = []
     if(state ==1):
-        #monster1 = Monster()
-        #monster1.set_pos(35 * 5, 550)
-        #create.append(monster1)
+        monster1 = Monster()
+        monster1.set_pos(35 * 5, 550)
+        create.append(monster1)
 
         monster3 = Monster()
         monster3.set_pos(35 * 15, 550)
@@ -132,9 +132,9 @@ def create_monster():
         monster7.set_pos(35 * 17, 550)
         create.append(monster7)
 
-        #monster10 = Monster()
-        #monster10.set_pos(35 * 7, 550)
-        #create.append(monster10)
+        monster10 = Monster()
+        monster10.set_pos(35 * 7, 550)
+        create.append(monster10)
 
         monster9 = Monster()
         monster9.set_pos(35 * 30, 550)

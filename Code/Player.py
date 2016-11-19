@@ -27,9 +27,9 @@ class Player_Character:
         self.life_time = 0.0
         self.total_frames = 0.0
         self.image = load_image('../Resource/character/Player2.png')
-        if Player_Character.eat_sound==None:
-            Player_Character.eat_sound=load_wav('pickup.wav')
-            Player_Character.eat_sound.set_volume(15)
+       # if Player_Character.eat_sound==None:
+          #  Player_Character.eat_sound=load_wav('pickup.wav')
+            #Player_Character.eat_sound.set_volume(15)
         self.move=0
         self.dir =1
         font = load_font('ENCR10B.TTF', 40)
