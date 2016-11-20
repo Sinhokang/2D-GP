@@ -20,12 +20,19 @@ class Background:
         self.four = load_image('../Resource/background/04.png')
         self.four2=load_image('../Resource/background/04.png')
         self.four3=load_image('../Resource/background/04.png')
+        self.bgm = load_music('football.mp3')
+        self.bgm.set_volume(64)
+        self.bgm.repeat_play()
 
         self.frame=0
         self.frame2=0
         self.frame3=0
         self.frame4=0
         self.state=self.One
+
+    def __del__(self):
+        del self.image
+        del self.bgm
 
     def update(self):
         if self.state==self.One:
