@@ -91,7 +91,7 @@ class Player_Character:
         if event.type == SDL_KEYDOWN:
             if event.key == SDLK_RIGHT:
                 self.Rfly = False
-                print('gg')
+                #print('gg')
             if event.key == SDLK_LEFT:
                 self.Lfly = False
         if event.type == SDL_KEYUP:

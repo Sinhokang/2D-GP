@@ -114,6 +114,8 @@ def create_monster():
     global state
     state=0
     state=(state+1)%4
+
+    print(state)
     create = []
     if(state ==1):
         monster1 = Monster()
@@ -260,7 +262,7 @@ def update(frame_time):
     player.update(frame_time)
     background.update()
     font.draw(500,450,'Time:%4.1f'%(player.life_time),(0,0,0))
-    print(player.life_time)
+    #(player.life_time)
     #font.draw(100, 450 - 40 * i, 'TIME:%4.1f'
            #   % (score['Time']), (100, 150, 150))
 

@@ -28,7 +28,7 @@ class Monster:
         self.x, self.y = random.randint(350, 650), 550
         self.dir = 1
         self.fall_speed = random.randint(150, 250)
-
+        self.state=0
 
         self.image = load_image('../Resource/character/Enemy4.png')
 
@@ -36,7 +36,8 @@ class Monster:
     def update(self,frame_time):
         self.y -= frame_time * self.fall_speed
         self.RUN_SPEED_KMPH+=0.05
-        print(self.y)
+        self.state=(self.state+1)%4
+        #print(self.y)
         '''
         if Background.state==1:
             dir=1
@@ -47,7 +48,7 @@ class Monster:
         elif Background.state==4:
             dir=2.5
         '''
-        print(self.y)
+        #print(self.y)
         if self.y <= -550:
             self.y = 550
 
