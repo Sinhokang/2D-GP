@@ -257,9 +257,9 @@ def update(frame_time):
         if monster.y <= -20:
             monsters = create_monster()
 
-    monster.update(frame_time)
+    #monster.update(frame_time)
     player.update(frame_time)
-    background.update(frame_time)
+    background.update()
 
     #(player.life_time)
     #font.draw(100, 450 - 40 * i, 'TIME:%4.1f'

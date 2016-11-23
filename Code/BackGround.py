@@ -7,19 +7,8 @@ from pico2d import *
 
 
 class Background:
-    PIXEL_PER_METER = (20.0 / 1)
-    RUN_SPEED_KMPH = 250
-    RUN_SPEED_MPM = (RUN_SPEED_KMPH * 1000.0 / 60.0)
-    RUN_SPEED_MPS = (RUN_SPEED_MPM / 60.0)
-    RUN_SPEED_PPS = (RUN_SPEED_MPS * PIXEL_PER_METER)
-
-    TIME_PER_ACTION = 0.5
-    ACTION_PER_TIME = 1.0 / TIME_PER_ACTION
-    FRAMES_PER_ACTION = 8
-
 
     One,Two,Three,Four=1,2,3,4
-
     def __init__(self):
         self.x, self.y = 400, 400
         self.bossUP=True
@@ -34,7 +23,6 @@ class Background:
         self.bgm = load_music('football.mp3')
         self.bgm.set_volume(64)
         self.bgm.repeat_play()
-        self.dir=1
 
         self.frame=0
         self.frame2=0
@@ -46,12 +34,9 @@ class Background:
         del self.image
         del self.bgm
 
-    def update(self,frame_time):
-        distance = Background.RUN_SPEED_PPS * frame_time
-        self.frame -= (self.dir * distance)
-        self.state
+    def update(self):
         if self.state==self.One:
-            self.frame -= 1.0
+            self.frame -= 1.0#1
             if self.frame <= -600:
                 self.frame = 0
                 self.state=self.Two
@@ -114,11 +99,3 @@ class Background:
 
     def draw_bb(self):
         draw_rectangle(*self.get_bb())
-
-
-
-
-
-
-
-
