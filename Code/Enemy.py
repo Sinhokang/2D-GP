@@ -7,8 +7,8 @@ from BackGround import Background
 
 class Monster:
 
-    PIXEL_PER_METER = (1000.0/ 0.3)
-    RUN_SPEED_KMPH = 0.5
+    PIXEL_PER_METER = (10.0/ 0.2)
+    RUN_SPEED_KMPH = 20
     '''
     if background.state==background.One:
         RUN_SPEED_KMPH = 0.5
@@ -25,29 +25,29 @@ class Monster:
 
 
     def __init__(self):
-        self.x, self.y = random.randint(350, 650), 550
+        self.x, self.y = random.randint(350, 650),550
         self.dir = 1
         self.fall_speed = random.randint(150, 250)
-        self.state=0
-
+        self.state=1
+        self.background=Background()
         self.image = load_image('../Resource/character/Enemy4.png')
 
 
     def update(self,frame_time):
-        self.y -= frame_time * self.fall_speed
-        self.RUN_SPEED_KMPH+=0.05
+        distance = Monster.RUN_SPEED_PPS * frame_time
+        self.y -= (self.dir * distance)
         self.state=(self.state+1)%4
-        #print(self.y)
-        '''
-        if Background.state==1:
-            dir=1
-        elif Background.state==2:
-            dir=1.5
-        elif Background.state==3:
-            dir=2
-        elif Background.state==4:
-            dir=2.5
-        '''
+
+
+        if self.background.state==1:
+            self.dir=1
+        elif self.background.state==2:
+            self.dir=1.5
+        elif self.background.state==3:
+            self.dir=2
+        elif self.background.state==4:
+            self.dir=2.5
+
         #print(self.y)
         if self.y <= -550:
             self.y = 550

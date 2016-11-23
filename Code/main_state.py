@@ -8,8 +8,8 @@ import game_framework
 import title_state
 from BackGround import Background
 
-from Player import Player_Character
-from Player import Missile
+from Player import aircraft
+from misile import Missile
 from Enemy  import Monster
 from Item import Item_bomb
 from Item import Item_slow
@@ -29,15 +29,13 @@ bosss=[]
 def enter():
     global player,background,monsters,item_bomb,item_slow,missile,font
 
-    font = load_font('ENCR10B.TTF', 40)
-    player=Player_Character()
+    font = load_font('ENCR10B.TTF', 30)
+    player=aircraft()
     background=Background()
     monsters = create_monster()
     item_bomb=Item_bomb()
     item_slow=Item_slow()
     game_framework.reset_time()
-
-
     pass
 
 
@@ -54,7 +52,7 @@ def exit():
     del(font)
     del(player)
     del(background)
-   # del(monster)
+    #del(monster)
     del(item_bomb)
     del(item_slow)
     del(boss)
@@ -223,6 +221,7 @@ def create_monster():
     return create
 
 def update(frame_time):
+
     appear=True
     dis=4
     global monsters
@@ -258,10 +257,10 @@ def update(frame_time):
         if monster.y <= -20:
             monsters = create_monster()
 
-    #monster.update(frame_time)
+    monster.update(frame_time)
     player.update(frame_time)
-    background.update()
-    font.draw(500,450,'Time:%4.1f'%(player.life_time),(0,0,0))
+    background.update(frame_time)
+
     #(player.life_time)
     #font.draw(100, 450 - 40 * i, 'TIME:%4.1f'
            #   % (score['Time']), (100, 150, 150))
@@ -273,7 +272,7 @@ def draw(frame_time):
     player.draw()
     player.draw_bb()
     #background.get_bb()
-
+    font.draw(600, 550, 'Time:%4.1f' % (player.life_time), (255, 255, 255))
     for missile in missiles:
         missile.draw()
     for missile in missiles:
