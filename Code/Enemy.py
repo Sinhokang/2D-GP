@@ -1,7 +1,7 @@
 import random
 
 from pico2d import *
-from BackGround import Background
+#from BackGround import Background
 
 
 
@@ -29,7 +29,7 @@ class Monster:
         self.dir = 1
         self.fall_speed = random.randint(150, 250)
         self.state=1
-        self.background=Background()
+
         self.image = load_image('../Resource/character/Enemy4.png')
 
 
@@ -37,18 +37,6 @@ class Monster:
         distance = Monster.RUN_SPEED_PPS * frame_time
         self.y -= (self.dir * distance)
         self.state=(self.state+1)%4
-
-
-        if self.background.state==1:
-            self.dir=1
-        elif self.background.state==2:
-            self.dir=1.5
-        elif self.background.state==3:
-            self.dir=2
-        elif self.background.state==4:
-            self.dir=2.5
-
-        #print(self.y)
         if self.y <= -550:
             self.y = 550
 

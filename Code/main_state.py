@@ -52,7 +52,7 @@ def exit():
     del(font)
     del(player)
     del(background)
-    #del(monster)
+    del(monster)
     del(item_bomb)
     del(item_slow)
     del(boss)

@@ -99,3 +99,14 @@ class Background:
 
     def draw_bb(self):
         draw_rectangle(*self.get_bb())
+
+
+
+class Boss:
+
+
+    def __init__(self):
+        self.x, self.y = 400, 550
+
+
+
