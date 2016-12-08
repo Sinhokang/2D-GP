@@ -16,7 +16,7 @@ class Missile:
 
     def __init__(self, x, y):
         self.x, self.y = x, y + 75
-        self.image = load_image("../Resource/effect/Black_boost_02.png")
+        self.image = load_image("./Resource/effect/Black_boost_02.png")
         self.dir=1
     def update(self, frame_time):
         distance = Missile.RUN_SPEED_PPS * frame_time

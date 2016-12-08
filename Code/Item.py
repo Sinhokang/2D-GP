@@ -15,9 +15,9 @@ class Item_bomb:
         self.frame=3
         self.frame2=0
         self.swit=True
-        self.image=load_image('../Resource/object/item_bomb.png')
-        self.Num=load_image('../Resource/ui/Number01.png')
-        self.Bomb=load_image('../Resource/effect/deco_02.png')
+        self.image=load_image('./Resource/object/item_bomb.png')
+        self.Num=load_image('./Resource/ui/Number01.png')
+        self.Bomb=load_image('./Resource/effect/deco_02.png')
     def draw(self):
         self.image.draw(self.x,self.y)
         self.Num.clip_draw((self.frame-1)*35,0,40,20,self.nx,self.ny)
@@ -43,9 +43,9 @@ class Item_slow:
         self.bx, self.by = 400, 300
         self.frame=3
         self.swit=True
-        self.image = load_image('../Resource/object/item_break.png')
-        self.Num = load_image('../Resource/ui/Number01.png')
-        self.slow=load_image('../Resource/effect/slow.png')
+        self.image = load_image('./Resource/object/item_break.png')
+        self.Num = load_image('./Resource/ui/Number01.png')
+        self.slow=load_image('./Resource/effect/slow.png')
 
     def draw(self):
         self.image.draw(self.x, self.y)

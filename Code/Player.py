@@ -25,7 +25,7 @@ class aircraft:
         self.x, self.y = 400, 90
         self.frame = 0
         self.life_time = 0.0
-        self.image = load_image('../Resource/character/Player2.png')
+        self.image = load_image('./Resource/character/Player2.png')
         self.dir =1
 
 
@@ -88,7 +88,7 @@ class Missile:
     def __init__(self,x,y):
         self.x,self.y= x,y+75
         self.speed=1000
-        self.image= load_image("../Resource/effect/Black_boost_02.png")
+        self.image= load_image("./Resource/effect/Black_boost_02.png")
 
     def update(self,frame_time):
         self.y +=frame_time*self.speed

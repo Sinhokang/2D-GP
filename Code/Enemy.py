@@ -30,7 +30,7 @@ class Monster:
         self.fall_speed = random.randint(150, 250)
         self.state=1
 
-        self.image = load_image('../Resource/character/Enemy4.png')
+        self.image = load_image('./Resource/character/Enemy4.png')
 
 
     def update(self,frame_time):

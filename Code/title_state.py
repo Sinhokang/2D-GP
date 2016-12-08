@@ -9,9 +9,9 @@ image = None
 
 def enter():
     global image,Load,back
-    image =load_image("../Resource/background/logo.png")
-    Load =load_image("../Resource/background/event_detail_sample.png")
-    back=load_image("../Resource/background/back.png")
+    image =load_image("./Resource/background/logo.png")
+    Load =load_image("./Resource/background/event_detail_sample.png")
+    back=load_image("./Resource/background/back.png")
     pass
 
 def exit():
