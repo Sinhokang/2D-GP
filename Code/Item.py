@@ -8,6 +8,9 @@ from Enemy import Monster
 
 class Item_bomb:
     #monster=Monster()
+    image=None
+    Num=None
+    Bomb=None
     def __init__(self):
         self.x,self.y=50,100
         self.nx,self.ny=50,150
@@ -15,9 +18,12 @@ class Item_bomb:
         self.frame=3
         self.frame2=0
         self.swit=True
-        self.image=load_image('./Resource/object/item_bomb.png')
-        self.Num=load_image('./Resource/ui/Number01.png')
-        self.Bomb=load_image('./Resource/effect/deco_02.png')
+        if Item_bomb.image==None:
+            self.image=load_image('./Resource/object/item_bomb.png')
+        if Item_bomb.Num == None:
+            self.Num=load_image('./Resource/ui/Number01.png')
+        if Item_bomb.Bomb == None:
+            self.Bomb=load_image('./Resource/effect/deco_02.png')
     def draw(self):
         self.image.draw(self.x,self.y)
         self.Num.clip_draw((self.frame-1)*35,0,40,20,self.nx,self.ny)
@@ -37,15 +43,21 @@ class Item_bomb:
 
 
 class Item_slow:
+    image = None
+    Num = None
+    slow= None
     def __init__(self):
         self.x, self.y = 750, 100
         self.nx, self.ny = 750, 150
         self.bx, self.by = 400, 300
         self.frame=3
         self.swit=True
-        self.image = load_image('./Resource/object/item_break.png')
-        self.Num = load_image('./Resource/ui/Number01.png')
-        self.slow=load_image('./Resource/effect/slow.png')
+        if Item_slow.image==None:
+            self.image = load_image('./Resource/object/item_break.png')
+        if Item_slow.Num == None:
+            self.Num = load_image('./Resource/ui/Number01.png')
+        if Item_slow.slow==None:
+            self.slow=load_image('./Resource/effect/slow.png')
 
     def draw(self):
         self.image.draw(self.x, self.y)
