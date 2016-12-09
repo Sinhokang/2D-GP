@@ -7,20 +7,33 @@ from pico2d import *
 
 
 class Background:
-
+    one=None
+    two=None
+    three=None
+    four=None
+    four2=None
+    four3=None
+    boss=None
     One,Two,Three,Four=1,2,3,4
     def __init__(self):
         self.x, self.y = 400, 400
         self.bossUP=True
         self.bossDown=True
-        self.boss = load_image('./Resource/character/Boss.png')
-        self.one = load_image('./Resource/background/01.png')
-        self.two=load_image('./Resource/background/02.png')
-        self.three=load_image('./Resource/background/03.png')
-        self.four = load_image('./Resource/background/04.png')
-        self.four2=load_image('./Resource/background/04.png')
-        self.four3=load_image('./Resource/background/04.png')
-        self.bgm = load_music('football.mp3')
+        if Background.boss == None:
+            self.boss = load_image('./Resource/character/Boss.png')
+        if Background.one == None:
+            self.one = load_image('./Resource/background/01.png')
+        if Background.two == None:
+            self.two=load_image('./Resource/background/02.png')
+        if Background.three == None:
+            self.three=load_image('./Resource/background/03.png')
+        if Background.four == None:
+            self.four = load_image('./Resource/background/04.png')
+        if Background.four2 == None:
+            self.four2=load_image('./Resource/background/04.png')
+        if Background.four3 == None:
+            self.four3=load_image('./Resource/background/04.png')
+        self.bgm = load_music('Backgroundsound.mp3')
         self.bgm.set_volume(64)
         self.bgm.repeat_play()
 

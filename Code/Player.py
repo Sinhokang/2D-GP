@@ -68,6 +68,8 @@ class aircraft:
     def get_bb(self):
         return self.x - 30, self.y - 50, self.x + 30, self.y + 50
 
+    def get_aa(self):
+        return self.x - 30, self.y - 50, self.x + 30, self.y + 50
 
     def draw_bb(self):
         draw_rectangle(*self.get_bb())
@@ -98,11 +100,12 @@ class Missile:
 
     def get_bb(self):
         return self.x - 15, self.y - 25, self.x + 15, self.y + 50
-    
+
+
 
 
     def draw_bb(self):
         draw_rectangle(*self.get_bb())
-
+        draw_rectangle(*self.get_aa())
 
 
