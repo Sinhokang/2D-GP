@@ -7,6 +7,16 @@ from pico2d import *
 
 
 class Background:
+    PIXEL_PER_METER = (10.0 / 0.3)  # 10 pixel 0.3 m
+    RUN_SPEED_KMPH = 30.0  # Km / Hour
+    RUN_SPEED_MPM = (RUN_SPEED_KMPH * 1000.0 / 60.0)
+    RUN_SPEED_MPS = (RUN_SPEED_MPM / 60.0)
+    RUN_SPEED_PPS = (RUN_SPEED_MPS * PIXEL_PER_METER)
+
+    TIME_PER_ACTION = 0.5
+    ACTION_PER_TIME = 1.0 / TIME_PER_ACTION
+    FRAMES_PER_ACTION = 4
+
     one=None
     two=None
     three=None
@@ -17,6 +27,8 @@ class Background:
     One,Two,Three,Four=1,2,3,4
     def __init__(self):
         self.x, self.y = 400, 400
+        self.bx,self.by=450,650
+
         self.bossUP=True
         self.bossDown=True
         if Background.boss == None:
@@ -42,12 +54,12 @@ class Background:
         self.frame3=0
         self.frame4=0
         self.state=self.One
-
+        self.bossUP=True
     def __del__(self):
         del self.image
         del self.bgm
 
-    def update(self):
+    def update(self,frame_time):
         if self.state==self.One:
             self.frame -= 1.0#1
             if self.frame <= -600:
@@ -87,8 +99,8 @@ class Background:
             self.two.clip_draw(0, 0, 800, 600, 400, 100 + self.frame2)
             self.two.clip_draw(0, 0, 800, 600, 400, 700 + self.frame2)
             self.two.clip_draw(0, 0, 800, 600, 400, 1300 + self.frame2)
-            #if (self.bossUP == False):
-              #  self.boss.draw(self.x, self.y)
+            if (self.bossUP == False):
+                self.boss.draw(self.x, self.y)
         if self.state == self.Three:
             self.three.clip_draw(0, 0, 800, 600, 400, 100 + self.frame3)
             self.three.clip_draw(0, 0, 800, 600, 400, 700 + self.frame3)
@@ -108,18 +120,12 @@ class Background:
             self.four.clip_draw(0, 0, 800, 600, 400, 1300 + self.frame4)
 
     def get_bb(self):
-        return self.x - 200, self.y - 105, self.x + 100, self.y + 200
+        return self.bx - 200, self.by - 105, self.bx + 100, self.by + 200
+
 
     def draw_bb(self):
         draw_rectangle(*self.get_bb())
 
-
-
-class Boss:
-
-
-    def __init__(self):
-        self.x, self.y = 400, 550
 
 
 

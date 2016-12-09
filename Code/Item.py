@@ -4,10 +4,10 @@ import random
 from pico2d import *
 from Enemy import Monster
 
-
+from Enemy  import Monster
 
 class Item_bomb:
-    #monster=Monster()
+
     image=None
     Num=None
     Bomb=None
@@ -17,6 +17,7 @@ class Item_bomb:
         self.bx,self.by=400,300
         self.frame=3
         self.frame2=0
+        monster = Monster()
         self.swit=True
         if Item_bomb.image==None:
             self.image=load_image('./Resource/object/item_bomb.png')
@@ -33,7 +34,7 @@ class Item_bomb:
 
     def update(self):
         self.Bomb.draw(self.bx,self.by)
-        delay(0.05)
+
     def handle_event(self, event):
         if event.type == SDL_KEYDOWN and event.key == SDLK_z:
             self.frame -=1
@@ -68,8 +69,6 @@ class Item_slow:
 
     def update(self):
         self.slow.draw(self.bx,self.by)
-        delay(0.05)
-
     def handle_event(self, event):
         if event.type == SDL_KEYDOWN and event.key == SDLK_x:
             self.frame -= 1
