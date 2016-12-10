@@ -190,7 +190,7 @@ def update(frame_time):
                 missiles.remove(missile)
                 backgrounds.remove(background)
                 #for missile in missiles:
-   
+
 
     for monster in monsters:
         if collide(monster, player) :
