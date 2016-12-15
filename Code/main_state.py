@@ -128,7 +128,7 @@ def handle_events(frame_time):
 
 def create_monster():
     create = []
-
+    empty=[]
     monster1 = Monster()
     monster1.set_pos(35 * 5, 550)
     monster1.type(random.randint(1, 5))
@@ -187,6 +187,8 @@ def update(frame_time):
     for missile in missiles:
         for background in backgrounds:
             if collide(background, missile):
+
+
                 missiles.remove(missile)
                 backgrounds.remove(background)
                 #for missile in missiles:
