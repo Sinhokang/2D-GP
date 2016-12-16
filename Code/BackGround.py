@@ -16,7 +16,7 @@ class Background:
     TIME_PER_ACTION = 0.5
     ACTION_PER_TIME = 1.0 / TIME_PER_ACTION
     FRAMES_PER_ACTION = 4
-
+   #100픽셀에 3미터 800*2400 2400M*7200M 크기의 종스크롤 방식
     one=None
     two=None
     three=None
