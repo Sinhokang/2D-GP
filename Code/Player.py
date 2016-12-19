@@ -67,7 +67,7 @@ class aircraft:
 
 
     def get_bb(self):
-        return self.x - 30, self.y - 50, self.x + 30, self.y + 50
+        return self.x - 30, self.y - 50, self.x + 30, self.y + 40
 
     def get_aa(self):
         return self.x - 30, self.y - 50, self.x + 30, self.y + 50

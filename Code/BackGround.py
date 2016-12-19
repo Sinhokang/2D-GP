@@ -4,8 +4,6 @@ from pico2d import *
 
 
 
-
-
 class Background:
     PIXEL_PER_METER = (10.0 / 0.3)  # 10 pixel 0.3 m
     RUN_SPEED_KMPH = 30.0  # Km / Hour
@@ -21,18 +19,10 @@ class Background:
     two=None
     three=None
     four=None
-    four2=None
-    four3=None
-    boss=None
     One,Two,Three,Four=1,2,3,4
+
     def __init__(self):
         self.x, self.y = 400, 400
-        self.bx,self.by=450,650
-
-        self.bossUP=True
-        self.bossDown=True
-        if Background.boss == None:
-            self.boss = load_image('./Resource/character/Boss.png')
         if Background.one == None:
             self.one = load_image('./Resource/background/01.png')
         if Background.two == None:
@@ -41,20 +31,14 @@ class Background:
             self.three=load_image('./Resource/background/03.png')
         if Background.four == None:
             self.four = load_image('./Resource/background/04.png')
-        if Background.four2 == None:
-            self.four2=load_image('./Resource/background/04.png')
-        if Background.four3 == None:
-            self.four3=load_image('./Resource/background/04.png')
         self.bgm = load_music('Backgroundsound.mp3')
         self.bgm.set_volume(64)
         self.bgm.repeat_play()
-
         self.frame=0
         self.frame2=0
         self.frame3=0
         self.frame4=0
         self.state=self.One
-        self.bossUP=True
     def __del__(self):
         del self.image
         del self.bgm
@@ -65,15 +49,13 @@ class Background:
             if self.frame <= -600:
                 self.frame = 0
                 self.state=self.Two
-                self.bossUP=False
-                #if(self.bossUP==False):
-                 #   self.bossDown=False
         if self.state==self.Two:
             self.frame2 -= 2.0#2
             if self.frame2 <= -600:
                 self.frame2=0
                 self.state=self.Three
                 self.y=0
+
         if self.state==self.Three:
             self.frame3 -= 3.0 #3
             if self.frame3 <= -600:
@@ -87,7 +69,7 @@ class Background:
                 self.state=self.One
                 self.y=0
 
-        #print (self.change)
+
 
     def draw(self):
         if self.state==self.One:
@@ -99,8 +81,6 @@ class Background:
             self.two.clip_draw(0, 0, 800, 600, 400, 100 + self.frame2)
             self.two.clip_draw(0, 0, 800, 600, 400, 700 + self.frame2)
             self.two.clip_draw(0, 0, 800, 600, 400, 1300 + self.frame2)
-            if (self.bossUP == False):
-                self.boss.draw(self.x, self.y)
         if self.state == self.Three:
             self.three.clip_draw(0, 0, 800, 600, 400, 100 + self.frame3)
             self.three.clip_draw(0, 0, 800, 600, 400, 700 + self.frame3)
@@ -119,12 +99,7 @@ class Background:
             self.four.clip_draw(0, 0, 800, 600, 400, 700 + self.frame4)
             self.four.clip_draw(0, 0, 800, 600, 400, 1300 + self.frame4)
 
-    def get_bb(self):
-        return self.bx - 200, self.by - 105, self.bx + 100, self.by + 200
 
-
-    def draw_bb(self):
-        draw_rectangle(*self.get_bb())
 
 
 

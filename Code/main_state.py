@@ -11,7 +11,7 @@ from BackGround import Background
 from Player import aircraft
 from misile import Missile
 from Enemy  import Monster
-
+from boss import Boss
 from Item import Item_bomb
 from Item import Item_slow
 
@@ -19,20 +19,20 @@ import Ranking_state
 name = "MainState"
 
 
-grass = None
 font = None
 backgrounds=None
-boss=None
+Bos=None
 Enemy_Missile=[]
 missiles=[]
 monsters=[]
-bosss=[]
+
 
 def enter():
-    global player,backgrounds,monsters,item_bomb,item_slow,missile,font
+    global player,backgrounds,monsters,item_bomb,item_slow,missile,font,Bos
     global state,Enemy_Missile
     font = load_font('ENCR10B.TTF', 30)
     player=aircraft()
+    Bos=Boss()
     backgrounds=Background()
     monsters = create_monster()
     item_bomb=Item_bomb()
@@ -43,7 +43,7 @@ def enter():
 
 def exit():
 
-    global player,backgrounds,monster,item_bomb,item_slow,missile,font,boss
+    global player,backgrounds,monster,item_bomb,item_slow,missile,font,Bos
     f = open('data_file.txt', 'r')
     score_data = json.load(f)
     f.close()
@@ -55,10 +55,8 @@ def exit():
     del(player)
     del(backgrounds)
     del(monster)
-    del(item_bomb)
-    del(item_slow)
-    del(boss)
-    #del(missile)
+    del(Bos)
+    del(missile)
 
     pass
 
@@ -165,9 +163,11 @@ def update(frame_time):
 
     global monsters
     global missiles
-    global bosss
+    global Bos
     global Enemy_Missile
     global backgrounds
+    global life
+    life =15
     handle_events(frame_time)
     player.update(frame_time)
     backgrounds.update(frame_time)
@@ -185,13 +185,14 @@ def update(frame_time):
                 monsters.remove(monster)
 
     for missile in missiles:
-        for background in backgrounds:
-            if collide(background, missile):
+        for boss in Bos:
+            if collide(missile,boss):
+                print(life)
+                life-=1
+                if(life==0):
+                    Bos.remove(boss)
 
 
-                missiles.remove(missile)
-                backgrounds.remove(background)
-                #for missile in missiles:
 
 
     for monster in monsters:
@@ -233,7 +234,9 @@ def draw(frame_time):
     for monster in monsters:
         monster.draw_bb()
 
-    backgrounds.draw_bb()
+    Bos.draw()
+
+    #backgrounds.draw_bb()
     item_bomb.draw()
     item_slow.draw()
 

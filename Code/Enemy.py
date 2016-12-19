@@ -27,7 +27,7 @@ class Monster:
         distance = Monster.RUN_SPEED_PPS * frame_time
         self.y -= (self.dir * distance)
         self.ey-=(self.dir2*distance)
-        self.RUN_SPEED_KMPH+=5
+        self.RUN_SPEED_PPS+=10
         if self.y <= -550:
             self.y = 550
 
@@ -37,7 +37,7 @@ class Monster:
 
     def draw(self):
         self.image.clip_draw(0,0, 150,110, self.x, self.y)
-        self.E_image.clip_draw(0,0,20,35,self.x,self.ey-40)
+        self.E_image.clip_draw(0,0,35,35,self.x,self.ey-40)
 
     def type(self, type):
         self.type = type
@@ -51,6 +51,7 @@ class Monster:
             self.image = load_image("./Resource/character/Enemy4.png")
         elif self.type == 5:
             self.image = load_image("./Resource/character/Enemy4.png")
+
     def get_bb(self):
         return self.x-22,self.y-25,self.x+22,self.y+25
     def get_aa(self):
