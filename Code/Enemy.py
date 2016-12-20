@@ -22,7 +22,7 @@ class Monster:
         if Monster.image == None:
             self.image = load_image('./Resource/character/Enemy1.png')
         if Monster.E_image == None:
-            self.E_image = load_image("./Resource/effect/E_missile.png")
+            self.E_image = load_image("./Resource/effect/hatzling_01_05.png")
 
     def update(self,frame_time):
         distance = Monster.RUN_SPEED_PPS * frame_time
@@ -38,7 +38,7 @@ class Monster:
 
     def draw(self):
         self.image.clip_draw(0,0, 150,110, self.x, self.y)
-        self.E_image.clip_draw(0,0,35,35,self.x,self.ey-40)
+        self.E_image.clip_draw(0,0,64,30,self.x,self.ey-40)
 
     def type(self, type):
         self.type = type
