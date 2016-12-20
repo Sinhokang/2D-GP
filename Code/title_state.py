@@ -38,7 +38,7 @@ def draw(frame_time):
     back.draw(400, 300)
     Load.draw(400,100)
     image.draw(400,300)
-    #back.draw(400,300)
+    
     update_canvas()
     pass
 
