@@ -31,7 +31,7 @@ class Background:
             self.three=load_image('./Resource/background/03.png')
         if Background.four == None:
             self.four = load_image('./Resource/background/04.png')
-        self.bgm = load_music('Backgroundsound.mp3')
+        self.bgm = load_music('./Resource/sound/music_maintheme.ogg')
         self.bgm.set_volume(64)
         self.bgm.repeat_play()
         self.frame=0
@@ -39,9 +39,7 @@ class Background:
         self.frame3=0
         self.frame4=0
         self.state=self.One
-    def __del__(self):
-        del self.image
-        del self.bgm
+
 
     def update(self,frame_time):
         if self.state==self.One:

@@ -21,6 +21,8 @@ class aircraft:
     Rfly=True
     global font
     destroy_sound=None
+    hit_sound=None
+    die_sound=None
     def __init__(self):
         self.x, self.y = 400, 90
         self.frame = 0
@@ -29,8 +31,19 @@ class aircraft:
         if aircraft.image==None:
             self.image = load_image('./Resource/character/Player2.png')
         if aircraft.destroy_sound==None:
-            aircraft.destroy_sound=load_wav('./Resource/sound/magic_hit.wav')
-            aircraft.destroy_sound.set_volume(45)
+            aircraft.destroy_sound=load_wav('./Resource/sound/ch_die.wav')
+            aircraft.destroy_sound.set_volume(65)
+        if aircraft.hit_sound == None:
+            aircraft.hit_sound = load_wav('./Resource/sound/dragon_breathe.wav')
+            aircraft.hit_sound.set_volume(45)
+        if aircraft.die_sound == None:
+            aircraft.die_sound = load_wav('./Resource/sound/dragon_death.wav')
+            aircraft.die_sound.set_volume(100)
+
+    def die(self, boss):
+        self.die_sound.play()
+    def hit(self, boss):
+        self.hit_sound.play()
 
     def update(self,frame_time):
         def clamp(minimum, x, maximum):

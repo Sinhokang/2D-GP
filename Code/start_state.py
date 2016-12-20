@@ -9,14 +9,19 @@ logo_time = 0.0
 
 
 def enter():
-    global image
+    global image,Load,back
     open_canvas()
-    image=load_image('./Resource/background/kpu_credit.png')
+    back = load_image("./Resource/background/back.png")
+    image = load_image("./Resource/background/logo.png")
+    Load = load_image("./Resource/background/event_detail_sample.png")
+
     pass
 
 def exit():
-    global image
+    global image,Load,back
     del(image)
+    del(Load)
+    del(back)
     close_canvas()
     pass
 def update(frame_time):
@@ -32,7 +37,9 @@ def update(frame_time):
 def draw(frame_time):
     global image
     clear_canvas()
-    image.draw(400,300)
+    back.draw(400, 300)
+    Load.draw(400, 100)
+    image.draw(400, 300)
     update_canvas()
     pass
 

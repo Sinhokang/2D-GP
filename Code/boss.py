@@ -13,7 +13,7 @@ class Boss:
 
     image=None
     def __init__(self):
-        self.x,self.y=1000,5000
+        self.x,self.y=1000,1000
         self.bossUP=True
         self.life=15
         self.dir=1
@@ -21,6 +21,10 @@ class Boss:
             self.image = load_image('./Resource/character/Boss2.png')
 
 
+
+
+
+                # dragon_death.wav
     def update(self,frame_time):
         distance = Boss.RUN_SPEED_PPS * frame_time
         self.y -= (self.dir * distance)

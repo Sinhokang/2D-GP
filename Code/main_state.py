@@ -28,10 +28,15 @@ monsters=[]
 Stage1_boss=[]
 life=15
 bossDown=True
+point=1
+kill=1
+current_time=1
+
 def enter():
-    global player,backgrounds,monsters,item_bomb,item_slow,missile,font,boss
+    global player,backgrounds,monsters,item_bomb,item_slow,missile,font,boss,font2
     global state,Enemy_Missile
-    font = load_font('ENCR10B.TTF', 30)
+    font = load_font('ENCR10B.TTF', 20)
+    font2 = load_font('ENCR10B.TTF', 23)
     player=aircraft()
     boss=Boss()
     backgrounds=Background()
@@ -44,11 +49,11 @@ def enter():
 
 def exit():
 
-    global player,backgrounds,monster,item_bomb,item_slow,missile,font
+    global player,backgrounds,monster,item_bomb,item_slow,missile,font,point,font2
     f = open('data_file.txt', 'r')
     score_data = json.load(f)
     f.close()
-    score_data.append({"Time": player.life_time})
+    score_data.append({"Time": player.life_time,"Score":point})
     f = open('data_file.txt', 'w')
     json.dump(score_data, f)
     f.close()
@@ -91,14 +96,19 @@ def collide2(a, b):
 def handle_events(frame_time):
 
     global missiles
+    global point
+
     events=get_events()
     for event in events:
         if event.type ==SDL_QUIT:
             game_framework.quit()
+            point=0
         elif event.type == SDL_KEYDOWN and event.key ==SDLK_ESCAPE:
             game_framework.change_state(title_state)
+            point=0
         elif event.type == SDL_KEYDOWN and event.key == SDLK_q:
             game_framework.change_state(Ranking_state)
+            point=0
         elif event.type == SDL_KEYDOWN and event.key == SDLK_SPACE:
             newmisslies = Missile(player.x,player.y)
             missiles.append(newmisslies)
@@ -169,6 +179,9 @@ def update(frame_time):
     global life
     global Stage1_boss
     global bossDown
+    global point
+    global kill
+
 
     handle_events(frame_time)
     player.update(frame_time)
@@ -188,15 +201,22 @@ def update(frame_time):
                 missiles.remove(missile)
                 monsters.remove(monster)
                 player.destroy(monster)
+                point+=random.randint(1,3)*player.life_time
+
+                print(point)
     if(bossDown==True):
         for missile in missiles:
             if collide(boss, missile):
                 missiles.remove(missile)
+                if(life>3):
+                    player.hit(boss)
+
                 life -=1
                 print(life)
                 if(life==0):
                     bossDown=False
-
+                    player.die(boss)
+                    point+=10000
 
     '''
     for missile in missiles:
@@ -231,7 +251,8 @@ def draw(frame_time):
     player.draw()
     player.draw_bb()
     #background.get_bb()
-    font.draw(600, 550, 'Time:%4.1f' % (player.life_time), (255, 255, 255))
+    font.draw(670, 550, 'Time:%2.1f' % (player.life_time), (255, 255, 255))
+    font2.draw(470,550,'Score:%3.1f'%(point),(255,255,255))
     for missile in missiles:
         missile.draw()
     for missile in missiles:
