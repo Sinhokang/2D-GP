@@ -25,7 +25,7 @@ Bos=None
 Enemy_Missile=[]
 missiles=[]
 monsters=[]
-boss=[]
+Stage1_boss=[]
 
 def enter():
     global player,backgrounds,monsters,item_bomb,item_slow,missile,font,boss
@@ -169,11 +169,11 @@ def update(frame_time):
 
     global monsters
     global missiles
-    global Boss
+    global boss
     global Enemy_Missile
     global backgrounds
     global life
-
+    global Stage1_boss
     handle_events(frame_time)
     player.update(frame_time)
     backgrounds.update(frame_time)
@@ -192,15 +192,20 @@ def update(frame_time):
                 missiles.remove(missile)
                 monsters.remove(monster)
 
+    for missile in missiles:
+        if collide(boss, missile):
+            print('gg')
+            missiles.remove(missile)
+            Stage1_boss.remove(boss)
 
     '''
     for missile in missiles:
-        for boss in Bos:
-            if collide(boss,missile):
+        for Boss in boss:
+            if collide(Boss,missile):
                 print(life)
                 life-=1
                 if(life==0):
-                    Bos.remove(boss)
+                    Bos.remove(Boss)
     '''
     for monster in monsters:
         if collide(monster, player) :
@@ -238,7 +243,9 @@ def draw(frame_time):
         monster.draw_bb()
 
 
+
     boss.draw()
+    boss.draw_bb()
     #backgrounds.draw_bb()
     item_bomb.draw()
     item_slow.draw()

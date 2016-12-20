@@ -13,15 +13,16 @@ class Monster:
 
     def __init__(self):
         self.x, self.y = random.randint(350, 650),550
+        self.by,self.by=400,400
         self.ey=500
         self.dir = 1
         self.dir2 = 1.5
+
         self.fall_speed = random.randint(150, 250)
         if Monster.image == None:
             self.image = load_image('./Resource/character/Enemy1.png')
         if Monster.E_image == None:
             self.E_image = load_image("./Resource/effect/E_missile.png")
-
 
     def update(self,frame_time):
         distance = Monster.RUN_SPEED_PPS * frame_time
