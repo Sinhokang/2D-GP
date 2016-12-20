@@ -25,14 +25,14 @@ Bos=None
 Enemy_Missile=[]
 missiles=[]
 monsters=[]
-
+boss=[]
 
 def enter():
-    global player,backgrounds,monsters,item_bomb,item_slow,missile,font,Bos
+    global player,backgrounds,monsters,item_bomb,item_slow,missile,font,boss
     global state,Enemy_Missile
     font = load_font('ENCR10B.TTF', 30)
     player=aircraft()
-    Bos=Boss()
+    boss=Boss()
     backgrounds=Background()
     monsters = create_monster()
     item_bomb=Item_bomb()
@@ -43,7 +43,7 @@ def enter():
 
 def exit():
 
-    global player,backgrounds,monster,item_bomb,item_slow,missile,font,Bos
+    global player,backgrounds,monster,item_bomb,item_slow,missile,font
     f = open('data_file.txt', 'r')
     score_data = json.load(f)
     f.close()
@@ -121,6 +121,13 @@ def handle_events(frame_time):
 
 
     pass
+'''
+def create_boss():
+    create=[]
+    boss=Boss()
+    boss.set_pos(400,400)
+    create.append(boss)
+'''
 
 
 
@@ -160,20 +167,21 @@ def create_monster():
 
 def update(frame_time):
 
-
     global monsters
     global missiles
-    global Bos
+    global Boss
     global Enemy_Missile
     global backgrounds
     global life
-    life =15
+
     handle_events(frame_time)
     player.update(frame_time)
     backgrounds.update(frame_time)
+    boss.update(frame_time)
+
+
     for monster in monsters:
         monster.update(frame_time)
-
 
     for missile in missiles:
         missile.update(frame_time)
@@ -184,20 +192,20 @@ def update(frame_time):
                 missiles.remove(missile)
                 monsters.remove(monster)
 
+
+    '''
     for missile in missiles:
         for boss in Bos:
-            if collide(missile,boss):
+            if collide(boss,missile):
                 print(life)
                 life-=1
                 if(life==0):
                     Bos.remove(boss)
-
-
-
-
+    '''
     for monster in monsters:
         if collide(monster, player) :
             game_framework.push_state(Ranking_state)
+
     for monster in monsters:
         if collide2(monster, player):
             game_framework.push_state(Ranking_state)
@@ -209,12 +217,7 @@ def update(frame_time):
         elif monster==[]:
             create_monster()
 
-    #monster.update(frame_time)
 
-
-    #(player.life_time)
-    #font.draw(100, 450 - 40 * i, 'TIME:%4.1f'
-           #   % (score['Time']), (100, 150, 150))
 
 
 def draw(frame_time):
@@ -234,8 +237,8 @@ def draw(frame_time):
     for monster in monsters:
         monster.draw_bb()
 
-    Bos.draw()
 
+    boss.draw()
     #backgrounds.draw_bb()
     item_bomb.draw()
     item_slow.draw()
