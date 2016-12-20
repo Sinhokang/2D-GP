@@ -13,7 +13,7 @@ class Boss:
 
     image=None
     def __init__(self):
-        self.x,self.y=400,500
+        self.x,self.y=1000,5000
         self.bossUP=True
         self.life=15
         self.dir=1
@@ -25,19 +25,12 @@ class Boss:
         distance = Boss.RUN_SPEED_PPS * frame_time
         self.y -= (self.dir * distance)
 
-        if self.y <=450:
-            self.y=450
+        if self.y <=500:
+            self.y=500
+        if  self.y<=1000:
+            self.x-=(self.dir*distance)
+            self.x=400
 
-
-        '''
-        self.rate+=1
-        print(self.rate)
-        if(self.rate>100):
-            self.bossUP=False
-        '''
-    def set_pos(self, x, y):
-        self.x = x
-        self.y = y
 
     def draw(self):
         self.image.clip_draw(0, 0, 500, 400, self.x, self.y)

@@ -3,7 +3,7 @@ import json
 import os
 
 from pico2d import *
-
+import stage2
 import game_framework
 import title_state
 from BackGround import Background
@@ -26,7 +26,8 @@ Enemy_Missile=[]
 missiles=[]
 monsters=[]
 Stage1_boss=[]
-
+life=15
+bossDown=True
 def enter():
     global player,backgrounds,monsters,item_bomb,item_slow,missile,font,boss
     global state,Enemy_Missile
@@ -51,13 +52,6 @@ def exit():
     f = open('data_file.txt', 'w')
     json.dump(score_data, f)
     f.close()
-    del(font)
-    del(player)
-    del(backgrounds)
-    del(monster)
-    del(Bos)
-    del(missile)
-
     pass
 
 
@@ -174,6 +168,8 @@ def update(frame_time):
     global backgrounds
     global life
     global Stage1_boss
+    global bossDown
+
     handle_events(frame_time)
     player.update(frame_time)
     backgrounds.update(frame_time)
@@ -191,12 +187,16 @@ def update(frame_time):
             if collide(monster, missile):
                 missiles.remove(missile)
                 monsters.remove(monster)
+                player.destroy(monster)
+    if(bossDown==True):
+        for missile in missiles:
+            if collide(boss, missile):
+                missiles.remove(missile)
+                life -=1
+                print(life)
+                if(life==0):
+                    bossDown=False
 
-    for missile in missiles:
-        if collide(boss, missile):
-            print('gg')
-            missiles.remove(missile)
-            Stage1_boss.remove(boss)
 
     '''
     for missile in missiles:
@@ -243,9 +243,10 @@ def draw(frame_time):
         monster.draw_bb()
 
 
+    if(bossDown==True):
+        boss.draw()
 
-    boss.draw()
-    boss.draw_bb()
+
     #backgrounds.draw_bb()
     item_bomb.draw()
     item_slow.draw()

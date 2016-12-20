@@ -8,7 +8,7 @@ from pico2d import *
 class aircraft:
 
     PIXEL_PER_METER = (10.0 / 0.3)
-    RUN_SPEED_KMPH = 30.0
+    RUN_SPEED_KMPH = 50.0
     RUN_SPEED_MPM = (RUN_SPEED_KMPH * 1000.0 / 60.0)
     RUN_SPEED_MPS = (RUN_SPEED_MPM / 60.0)
     RUN_SPEED_PPS = (RUN_SPEED_MPS * PIXEL_PER_METER)
@@ -20,16 +20,17 @@ class aircraft:
     Lfly=True
     Rfly=True
     global font
-
+    destroy_sound=None
     def __init__(self):
         self.x, self.y = 400, 90
         self.frame = 0
         self.life_time = 0.0
+        self.dir = 1
         if aircraft.image==None:
             self.image = load_image('./Resource/character/Player2.png')
-        self.dir =1
-
-
+        if aircraft.destroy_sound==None:
+            aircraft.destroy_sound=load_wav('./Resource/sound/magic_hit.wav')
+            aircraft.destroy_sound.set_volume(45)
 
     def update(self,frame_time):
         def clamp(minimum, x, maximum):
@@ -51,6 +52,9 @@ class aircraft:
 
     def draw(self):
         self.image.clip_draw(self.frame * 100, 0, 90, 100, self.x, self.y)
+
+    def destroy(self,monster):
+        self.destroy_sound.play()
 
 
     def handle_event(self,event):
