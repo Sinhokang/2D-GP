@@ -32,23 +32,23 @@ class Monster:
         if self.y <= -550:
             self.y = 550
 
-    def set_pos(self, x, y):
+    def set_pos(self, x):
         self.x = x
-        self.y = y
+        self.y = 550
 
     def draw(self):
         self.image.clip_draw(0,0, 150,110, self.x, self.y)
         self.E_image.clip_draw(0,0,64,30,self.x,self.ey-40)
 
-    def type(self, type):
-        self.type = type
-        if self.type == 1:
+    def type(self, color):
+        self.color = color
+        if self.color == 1:
             self.image = load_image("./Resource/character/Enemy1.png")
-        elif self.type == 2:
+        elif self.color == 2:
             self.image = load_image("./Resource/character/Enemy2.png")
-        elif self.type == 3:
+        elif self.color == 3:
             self.image = load_image("./Resource/character/Enemy3.png")
-        elif self.type == 4:
+        elif self.color == 4:
             self.image = load_image("./Resource/character/Enemy4.png")
 
     def get_bb(self):

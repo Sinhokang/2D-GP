@@ -130,36 +130,32 @@ def handle_events(frame_time):
     pass
 
 def create_monster():
+
     create = []
-    monster1 = Monster()
-    monster1.set_pos(35 * 5, 550)
-    monster1.type(random.randint(1, 4))
+
+    monster1=Monster()
     create.append(monster1)
-
     monster2 = Monster()
-    monster2.set_pos(35 * 9, 550)
-    monster2.type(random.randint(1, 4))
     create.append(monster2)
-
     monster3 = Monster()
-    monster3.set_pos(35 * 12, 550)
-    monster3.type(random.randint(1, 4))
     create.append(monster3)
-
     monster4 = Monster()
-    monster4.set_pos(35 * 15, 550)
-    monster4.type(random.randint(1, 4))
     create.append(monster4)
-
     monster5 = Monster()
-    monster5.set_pos(35 * 19, 550)
-    monster5.type(random.randint(1, 4))
     create.append(monster5)
-
     monster6 = Monster()
-    monster6.set_pos(35 * 30, 550)
     create.append(monster6)
-
+    monster1.set_pos(35 * 5)
+    monster1.color(random.randint(1, 4))
+    monster2.set_pos(35 * 9)
+    monster2.color(random.randint(1, 4))
+    monster3.set_pos(35 * 12)
+    monster3.color(random.randint(1, 4))
+    monster4.set_pos(35 * 15)
+    monster4.color(random.randint(1, 4))
+    monster5.set_pos(35 * 19)
+    monster5.color(random.randint(1, 4))
+    monster6.set_pos(35 * 30)
     return create
 
 def update(frame_time):
