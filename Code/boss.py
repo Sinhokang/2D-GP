@@ -14,15 +14,9 @@ class Boss:
     image=None
     def __init__(self):
         self.x,self.y=1000,1000
-        self.bossUP=True
-        self.life=15
         self.dir=1
         if Boss.image == None:
-            self.image = load_image('./Resource/character/Boss2.png')
-
-
-
-
+            self.image = load_image('./Resource/character/Boss3.png')
 
                 # dragon_death.wav
     def update(self,frame_time):

@@ -7,7 +7,7 @@ import stage2
 import game_framework
 import title_state
 from BackGround import Background
-
+from bossattack import Attack
 from Player import aircraft
 from misile import Missile
 from Enemy  import Monster
@@ -25,13 +25,15 @@ Bos=None
 Enemy_Missile=[]
 missiles=[]
 monsters=[]
+attacks=[]
 Stage1_boss=[]
-life=15
+life=50
 bossDown=True
 point=1
 kill=1
-current_time=1
-
+attack_time=0
+attack_time2=0
+Hardmode=True
 def enter():
     global player,backgrounds,monsters,item_bomb,item_slow,missile,font,boss,font2
     global state,Enemy_Missile
@@ -44,12 +46,13 @@ def enter():
     item_bomb=Item_bomb()
     item_slow=Item_slow()
     game_framework.reset_time()
+
     pass
 
 
 def exit():
 
-    global player,backgrounds,monster,item_bomb,item_slow,missile,font,point,font2
+    global player,backgrounds,monsters,item_bomb,item_slow,missile,font,point,font2
     f = open('data_file.txt', 'r')
     score_data = json.load(f)
     f.close()
@@ -57,6 +60,8 @@ def exit():
     f = open('data_file.txt', 'w')
     json.dump(score_data, f)
     f.close()
+    del(monsters)
+    del(backgrounds)
     pass
 
 
@@ -181,12 +186,20 @@ def update(frame_time):
     global bossDown
     global point
     global kill
-
-
+    global attacks
+    global attack_time
+    global attack_time2
+    global Hardmode
+    #print(attack_time)
+    #attack_time+=1
     handle_events(frame_time)
     player.update(frame_time)
     backgrounds.update(frame_time)
     boss.update(frame_time)
+
+
+
+
 
 
     for monster in monsters:
@@ -203,8 +216,16 @@ def update(frame_time):
                 player.destroy(monster)
                 point+=random.randint(1,3)*player.life_time
 
-                print(point)
+
     if(bossDown==True):
+        attack_time += 1
+        for attack in attacks:
+            attack.update(frame_time)
+        if(attack_time==80):
+            attack = Attack(player.x, player.y)
+            attacks.append(attack)
+            attack_time=0
+
         for missile in missiles:
             if collide(boss, missile):
                 missiles.remove(missile)
@@ -212,11 +233,24 @@ def update(frame_time):
                     player.hit(boss)
 
                 life -=1
-                print(life)
+
                 if(life==0):
                     bossDown=False
                     player.die(boss)
+                    Hardmode=False
                     point+=10000
+
+
+    if Hardmode == False:
+        attack_time2 += 1
+        for attack in attacks:
+            attack.update(frame_time)
+            if (attack_time2 > 40):
+                attack = Attack(player.x, player.y)
+                attacks.append(attack)
+                attack_time2 = 0
+
+    print('attack_time2', attack_time2)
 
     '''
     for missile in missiles:
@@ -229,19 +263,18 @@ def update(frame_time):
     '''
     for monster in monsters:
         if collide(monster, player) :
-            game_framework.push_state(Ranking_state)
-
-    for monster in monsters:
+            game_framework.change_state(title_state)
+    for attack in attacks:
+        if collide(attack, player):
+            game_framework.change_state(title_state)
+    for attack in monsters:
         if collide2(monster, player):
-            game_framework.push_state(Ranking_state)
-
-
+            game_framework.change_state(title_state)
     for monster in monsters:
         if monster.y <= -20:
             monsters = create_monster()
         elif monster==[]:
             create_monster()
-
 
 
 
@@ -266,9 +299,15 @@ def draw(frame_time):
 
     if(bossDown==True):
         boss.draw()
+        for attack in attacks:
+            attack.draw()
+            attack.draw_bb()
 
-
-    #backgrounds.draw_bb()
+    if(Hardmode==False):
+        for attack in attacks:
+            attack.draw()
+            attack.draw_bb()
+            #backgrounds.draw_bb()
     item_bomb.draw()
     item_slow.draw()
 
