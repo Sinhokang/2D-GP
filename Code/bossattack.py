@@ -13,7 +13,7 @@ class Attack:
 
     image=None
     def __init__(self,x,y):
-        self.x, self.y = x, y +1000
+        self.x, self.y = x, y +5500
         self.dir = -1
         if Attack.image == None:
             self.image = load_image('./Resource/object/weapon/lightning.png')
@@ -24,11 +24,11 @@ class Attack:
 
 
     def draw(self):
-            self.image.clip_draw(0,0,64,100,self.x, self.y)
+            self.image.clip_draw(0,0,64,200,self.x, self.y)
 
 
     def get_bb(self):
-        return self.x - 20, self.y-100, self.x + 20, self.y
+        return self.x - 20, self.y-90, self.x + 20, self.y+90
 
     def draw_bb(self):
         draw_rectangle(*self.get_bb())

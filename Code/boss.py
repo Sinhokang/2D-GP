@@ -13,7 +13,7 @@ class Boss:
 
     image=None
     def __init__(self):
-        self.x,self.y=1000,1000
+        self.x,self.y=1000,5500
         self.dir=1
         if Boss.image == None:
             self.image = load_image('./Resource/character/Boss3.png')

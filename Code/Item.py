@@ -2,9 +2,6 @@
 import random
 
 from pico2d import *
-from Enemy import Monster
-
-from Enemy  import Monster
 
 class Item_bomb:
 
@@ -17,7 +14,6 @@ class Item_bomb:
         self.bx,self.by=400,300
         self.frame=3
         self.frame2=0
-        monster = Monster()
         self.swit=True
         if Item_bomb.image==None:
             self.image=load_image('./Resource/object/item_bomb.png')

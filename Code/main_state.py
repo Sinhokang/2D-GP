@@ -128,19 +128,9 @@ def handle_events(frame_time):
 
 
     pass
-'''
-def create_boss():
-    create=[]
-    boss=Boss()
-    boss.set_pos(400,400)
-    create.append(boss)
-'''
-
-
 
 def create_monster():
     create = []
-    empty=[]
     monster1 = Monster()
     monster1.set_pos(35 * 5, 550)
     monster1.type(random.randint(1, 4))
@@ -188,8 +178,7 @@ def update(frame_time):
     global attack_time
     global attack_time2
     global Hardmode
-    #print(attack_time)
-    #attack_time+=1
+
     handle_events(frame_time)
     player.update(frame_time)
     backgrounds.update(frame_time)
@@ -219,6 +208,8 @@ def update(frame_time):
         attack_time += 1
         for attack in attacks:
             attack.update(frame_time)
+           # player.thunder2(attack)
+           # player.thunder(attack)
         if(attack_time==80):
             attack = Attack(player.x, player.y)
             attacks.append(attack)
@@ -243,30 +234,26 @@ def update(frame_time):
         attack_time2 += 1
         for attack in attacks:
             attack.update(frame_time)
+           # player.thunder2(attack)
+           # player.thunder(attack)
+
             if (attack_time2 > 40):
                 attack = Attack(player.x, player.y)
                 attacks.append(attack)
                 attack_time2 = 0
 
-
-    '''
-    for missile in missiles:
-        for Boss in boss:
-            if collide(Boss,missile):
-                print(life)
-                life-=1
-                if(life==0):
-                    Bos.remove(Boss)
-    '''
     for monster in monsters:
         if collide(monster, player):
             game_framework.push_state(title_state)
+            player.playerdeath(player)
     for attack in attacks:
         if collide(attack, player):
             game_framework.push_state(title_state)
+            player.playerdeath(player)
     for attack in monsters:
         if collide2(monster, player):
             game_framework.push_state(title_state)
+            player.playerdeath(player)
     for monster in monsters:
         if monster.y <= -20:
             monsters = create_monster()
@@ -280,31 +267,28 @@ def draw(frame_time):
     backgrounds.draw()
     player.draw()
     player.draw_bb()
-    #background.get_bb()
     font.draw(670, 550, 'Time:%2.1f' % (player.life_time), (255, 255, 255))
     font2.draw(470,550,'Score:%3.1f'%(point),(255,255,255))
     for missile in missiles:
         missile.draw()
-    for missile in missiles:
-        missile.draw_bb()
+
 
     for monster in monsters:
         monster.draw()
-    for monster in monsters:
-        monster.draw_bb()
+
 
 
     if(bossDown==True):
         boss.draw()
         for attack in attacks:
             attack.draw()
-            attack.draw_bb()
+
 
     if(Hardmode==False):
         for attack in attacks:
             attack.draw()
-            attack.draw_bb()
-            #backgrounds.draw_bb()
+
+
     item_bomb.draw()
     item_slow.draw()
 

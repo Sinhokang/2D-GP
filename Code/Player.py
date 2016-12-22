@@ -19,10 +19,12 @@ class aircraft:
     image =None
     Lfly=True
     Rfly=True
-    global font
     destroy_sound=None
     hit_sound=None
     die_sound=None
+    playerdeath_sound=None
+    thunder_sound=None
+    thunder2_sound = None
     def __init__(self):
         self.x, self.y = 400, 90
         self.frame = 0
@@ -39,12 +41,30 @@ class aircraft:
         if aircraft.die_sound == None:
             aircraft.die_sound = load_wav('./Resource/sound/dragon_death.wav')
             aircraft.die_sound.set_volume(100)
+        if aircraft.playerdeath_sound == None:
+            aircraft.playerdeath_sound = load_wav('./Resource/sound/thrown_projectile_hit_01.wav')
+            aircraft.playerdeath_sound.set_volume(100)
+        if aircraft.thunder_sound==None:
+            aircraft.thunder_sound= load_wav('./Resource/sound/thunder.wav')
+            aircraft.thunder_sound.set_volume(50)
+
+       # if aircraft.thunder2_sound == None:
+        #    aircraft.thunder2_sound = load_wav('./Resource/sound/alert.wav')
+         #   aircraft.thunder2_sound.set_volume(60)
 
     def die(self, boss):
         self.die_sound.play()
     def hit(self, boss):
         self.hit_sound.play()
 
+    def destroy(self,monster):
+        self.destroy_sound.play()
+    def playerdeath(self,playr):
+        self.playerdeath_sound.play()
+    def thunder(self,thun):
+        self.thunder_sound.play()
+#    def thunder2(self,thun):
+ #       self.thunder2_sound.play()
     def update(self,frame_time):
         def clamp(minimum, x, maximum):
             return max(minimum, min(x, maximum))
@@ -66,8 +86,6 @@ class aircraft:
     def draw(self):
         self.image.clip_draw(self.frame * 100, 0, 90, 100, self.x, self.y)
 
-    def destroy(self,monster):
-        self.destroy_sound.play()
 
 
     def handle_event(self,event):
