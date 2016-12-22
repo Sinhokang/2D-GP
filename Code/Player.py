@@ -66,11 +66,12 @@ class aircraft:
 #    def thunder2(self,thun):
  #       self.thunder2_sound.play()
     def update(self,frame_time):
+        distance = aircraft.RUN_SPEED_PPS * frame_time
         def clamp(minimum, x, maximum):
             return max(minimum, min(x, maximum))
         self.life_time += frame_time
         self.frame = (self.frame + 1) % 8
-        distance=aircraft.RUN_SPEED_PPS*frame_time
+
 
 
 

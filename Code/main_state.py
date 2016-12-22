@@ -30,6 +30,7 @@ point=1
 kill=1
 attack_time=0
 attack_time2=0
+x=1
 Hardmode=True
 def enter():
     global player,backgrounds,monsters,item_bomb,item_slow,missile,font,boss,font2
@@ -57,7 +58,7 @@ def exit():
     f = open('data_file.txt', 'w')
     json.dump(score_data, f)
     f.close()
-    del(monsters)
+
 
 
     pass
@@ -132,30 +133,22 @@ def handle_events(frame_time):
 def create_monster():
 
     create = []
+    global x
+    for i in range (5):
 
-    monster1=Monster()
-    create.append(monster1)
-    monster2 = Monster()
-    create.append(monster2)
-    monster3 = Monster()
-    create.append(monster3)
-    monster4 = Monster()
-    create.append(monster4)
-    monster5 = Monster()
-    create.append(monster5)
-    monster6 = Monster()
-    create.append(monster6)
-    monster1.set_pos(35 * 5)
-    monster1.color(random.randint(1, 4))
-    monster2.set_pos(35 * 9)
-    monster2.color(random.randint(1, 4))
-    monster3.set_pos(35 * 12)
-    monster3.color(random.randint(1, 4))
-    monster4.set_pos(35 * 15)
-    monster4.color(random.randint(1, 4))
-    monster5.set_pos(35 * 19)
-    monster5.color(random.randint(1, 4))
-    monster6.set_pos(35 * 30)
+        i=Monster()
+        i.set_pos(x*135)
+        i.color(random.randint(1,4))
+        create.append(i)
+        x+=1
+
+        print (x)
+
+    monsterOut=Monster()
+    monsterOut.set_pos(1000)
+    create.append(monsterOut)
+    x=1
+
     return create
 
 def update(frame_time):
@@ -179,7 +172,6 @@ def update(frame_time):
     player.update(frame_time)
     backgrounds.update(frame_time)
     boss.update(frame_time)
-
 
 
 
@@ -230,8 +222,6 @@ def update(frame_time):
         attack_time2 += 1
         for attack in attacks:
             attack.update(frame_time)
-           # player.thunder2(attack)
-           # player.thunder(attack)
 
             if (attack_time2 > 40):
                 attack = Attack(player.x, player.y)
@@ -241,14 +231,17 @@ def update(frame_time):
     for monster in monsters:
         if collide(monster, player):
             game_framework.push_state(title_state)
+            point =0
             player.playerdeath(player)
     for attack in attacks:
         if collide(attack, player):
             game_framework.push_state(title_state)
+            point =0
             player.playerdeath(player)
-    for attack in monsters:
+    for monster in monsters:
         if collide2(monster, player):
             game_framework.push_state(title_state)
+            point=0
             player.playerdeath(player)
     for monster in monsters:
         if monster.y <= -20:
@@ -258,11 +251,12 @@ def update(frame_time):
 
 
 
+
 def draw(frame_time):
     clear_canvas()
     backgrounds.draw()
     player.draw()
-    player.draw_bb()
+
     font.draw(670, 550, 'Time:%2.1f' % (player.life_time), (255, 255, 255))
     font2.draw(470,550,'Score:%3.1f'%(point),(255,255,255))
     for missile in missiles:

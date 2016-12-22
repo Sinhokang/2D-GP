@@ -40,7 +40,7 @@ class Monster:
         self.image.clip_draw(0,0, 150,110, self.x, self.y)
         self.E_image.clip_draw(0,0,64,30,self.x,self.ey-40)
 
-    def type(self, color):
+    def color(self, color):
         self.color = color
         if self.color == 1:
             self.image = load_image("./Resource/character/Enemy1.png")
