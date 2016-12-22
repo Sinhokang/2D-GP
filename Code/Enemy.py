@@ -50,8 +50,6 @@ class Monster:
             self.image = load_image("./Resource/character/Enemy3.png")
         elif self.type == 4:
             self.image = load_image("./Resource/character/Enemy4.png")
-        elif self.type == 5:
-            self.image = load_image("./Resource/character/Enemy4.png")
 
     def get_bb(self):
         return self.x-22,self.y-25,self.x+22,self.y+25

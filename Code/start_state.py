@@ -19,9 +19,6 @@ def enter():
 
 def exit():
     global image,Load,back
-    del(image)
-    del(Load)
-    del(back)
     close_canvas()
     pass
 def update(frame_time):

@@ -3,7 +3,6 @@ import json
 import os
 
 from pico2d import *
-import stage2
 import game_framework
 import title_state
 from BackGround import Background
@@ -21,8 +20,6 @@ name = "MainState"
 
 font = None
 backgrounds=None
-Bos=None
-Enemy_Missile=[]
 missiles=[]
 monsters=[]
 attacks=[]
@@ -37,8 +34,8 @@ Hardmode=True
 def enter():
     global player,backgrounds,monsters,item_bomb,item_slow,missile,font,boss,font2
     global state,Enemy_Missile
-    font = load_font('ENCR10B.TTF', 20)
-    font2 = load_font('ENCR10B.TTF', 23)
+    font = load_font('./Resource/background/ENCR10B.TTF', 20)
+    font2 = load_font('./Resource/background/ENCR10B.TTF', 23)
     player=aircraft()
     boss=Boss()
     backgrounds=Background()
@@ -61,7 +58,8 @@ def exit():
     json.dump(score_data, f)
     f.close()
     del(monsters)
-    del(backgrounds)
+
+
     pass
 
 
@@ -145,27 +143,27 @@ def create_monster():
     empty=[]
     monster1 = Monster()
     monster1.set_pos(35 * 5, 550)
-    monster1.type(random.randint(1, 5))
+    monster1.type(random.randint(1, 4))
     create.append(monster1)
 
     monster2 = Monster()
     monster2.set_pos(35 * 9, 550)
-    monster2.type(random.randint(1, 5))
+    monster2.type(random.randint(1, 4))
     create.append(monster2)
 
     monster3 = Monster()
     monster3.set_pos(35 * 12, 550)
-    monster3.type(random.randint(1, 5))
+    monster3.type(random.randint(1, 4))
     create.append(monster3)
 
     monster4 = Monster()
     monster4.set_pos(35 * 15, 550)
-    monster4.type(random.randint(1, 5))
+    monster4.type(random.randint(1, 4))
     create.append(monster4)
 
     monster5 = Monster()
     monster5.set_pos(35 * 19, 550)
-    monster5.type(random.randint(1, 5))
+    monster5.type(random.randint(1, 4))
     create.append(monster5)
 
     monster6 = Monster()
@@ -250,7 +248,6 @@ def update(frame_time):
                 attacks.append(attack)
                 attack_time2 = 0
 
-    print('attack_time2', attack_time2)
 
     '''
     for missile in missiles:
@@ -262,18 +259,18 @@ def update(frame_time):
                     Bos.remove(Boss)
     '''
     for monster in monsters:
-        if collide(monster, player) :
-            game_framework.change_state(title_state)
+        if collide(monster, player):
+            game_framework.push_state(title_state)
     for attack in attacks:
         if collide(attack, player):
-            game_framework.change_state(title_state)
+            game_framework.push_state(title_state)
     for attack in monsters:
         if collide2(monster, player):
-            game_framework.change_state(title_state)
+            game_framework.push_state(title_state)
     for monster in monsters:
         if monster.y <= -20:
             monsters = create_monster()
-        elif monster==[]:
+        elif monster == []:
             create_monster()
 
 

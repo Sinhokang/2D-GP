@@ -53,7 +53,6 @@ class Background:
                 self.frame2=0
                 self.state=self.Three
                 self.y=0
-
         if self.state==self.Three:
             self.frame3 -= 3.0 #3
             if self.frame3 <= -600:
@@ -91,11 +90,11 @@ class Background:
             self.four.clip_draw(0, 0, 800, 600, 400, 2500 + self.frame4)
             self.four.clip_draw(0, 0, 800, 600, 400, 3100 + self.frame4)
             self.four.clip_draw(0, 0, 800, 600, 400, 3700 + self.frame4)
-            self.four.clip_draw(0, 0, 800, 600, 400, 700 + self.frame4)
-            self.four.clip_draw(0, 0, 800, 600, 400, 1300 + self.frame4)
-            self.four.clip_draw(0, 0, 800, 600, 400, 100 + self.frame4)
-            self.four.clip_draw(0, 0, 800, 600, 400, 700 + self.frame4)
-            self.four.clip_draw(0, 0, 800, 600, 400, 1300 + self.frame4)
+            self.four.clip_draw(0, 0, 800, 600, 400, 4300 + self.frame4)
+            self.four.clip_draw(0, 0, 800, 600, 400, 4900 + self.frame4)
+            self.four.clip_draw(0, 0, 800, 600, 400, 5500 + self.frame4)
+            self.four.clip_draw(0, 0, 800, 600, 400, 6100 + self.frame4)
+            self.four.clip_draw(0, 0, 800, 600, 400, 6700 + self.frame4)
 
 
 

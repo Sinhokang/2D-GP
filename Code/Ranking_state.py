@@ -13,8 +13,8 @@ font = None
 def enter():
     global image
     global font
-    image = load_image('blackboard.png')
-    font = load_font('ENCR10B.TTF', 30)
+    image = load_image('./Resource/background/blackboard.png')
+    font = load_font('./Resource/background/ENCR10B.TTF', 30)
 
 def exit():
     global image
